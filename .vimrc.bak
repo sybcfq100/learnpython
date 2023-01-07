@@ -1,0 +1,614 @@
+"   .  . .  .  . .  . S@t.. .  .  . .  .  . .  .  . .  .  . .  .  . .  .  . .  .  . .  .  . .  .  . .  .  . .  .  . .  ..
+"    .     ..t%SXSS%:;t.X8S% .   .      .       .       .       .       .       .       .       .       .       .       .
+"      . %St8;8:X;8:8:8%8;%%:@S:    . .    . .    ....    .  .    .  .    .  .    .  .    .  .    .  .    .  .    .  ....
+"  .    8: %.;t;S;%@88:X.8X8%;8S t@@%   .  %@@t  .X88X .      .       .   %@@@@@@@@@X:  .     .       .       .       . 
+"    ..X.;X%8t8%8ttX.88;8.8%:;% ;8:SX%.   SX.8S.  St88:  .  .   .  .    ..XS.@%SSS88S@:. X@@%  . . .    .  .    .  ......
+"   . X;:;8SS888;8tt;8:8:8; t:t8S 8:Xt.  :8888: .%888:.  .SSSSSSSSSSS%:  .S888t   @@8X: .%.88  .SSt  .:SS;  .%SSSSSSSS%.
+"    :t8 :;X8S;8.8S;8S.8.t8:%8XS.. S8.8:.S8;8;  :@;@88 . S:88 X.88@88:@t..%S.  .. X;8@: :%:;8. X%:X;. 8;.;  %S8@XXSXSS8..
+"  .t88; X;8S8888;8S8t 8S88SSStt:. @.%8St;@8X  . t .8S   S:88:%888%;8t8:..S.S@%SSS8S88t .% @;  X:.X.  88t :.t@t8@ .......
+"  8; :888XSStS;88;88X%;;tt::;;8@ ..%X88:88Xt    .S@.::. S@8% X8.@;S888X .%;88SSSS.SX.:. 8S88: @;88t. 8.S8  t;@8@88@88S..
+"  S. :tX: ;%8S8 : .::. %8t  %S 8.  @88t8 8t.  . . .@8;  8888 @@%S;t8.8S .:SX8; .:.... . S8; ..8888:..8:8@: ;St@@888.@@..
+"    :8:;888888 .; .     8%8@       .8X.@8X  .    X%8@  .t@8S X88X:%888X .@8@8t  ..  .   SX%X .X;;S@%tS8; ;..SttSXS8888S.
+"    t.8XX;;8X% XX.  .    %8X8;   . :tX8@t     .  t8X8:  %@@S X8@@:t8tXt...:%t..       . X:8X  X8@@88@888t. %88t888 888t.
+"  .    :8;S: . S@.       t8;8:: .   .;:;. . .   .%@%:   t%%; .%%;..: t. .;  :  . . .    %;8.  ;X;X%.:.: t  ;t  ;:: :t;..
+"     :%@t%8   88.  .  .  :: . ..   .   .          .   . ..  .      ..   .    .       . . ... .   . .   .        ..     
+"      .. 8888   ..      ...   . .    .   .  . .     .   ..    .  .    .        .   .   . ..    .  .  .   .  . .     ....
+"
+" Author: chxuan <787280310@qq.com>
+" Repository: https://github.com/chxuan/vimplus
+" Create Date: 2016-04-10
+" License: MIT
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ÍšÓÃÉèÖÃ
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let mapleader = ","      " ¶šÒå<leader>Œü
+set nocompatible         " ÉèÖÃ²»ŒæÈÝÔ­ÊŒviÄ£Êœ
+filetype on              " ÉèÖÃ¿ªÆôÎÄŒþÀàÐÍÕì²â
+filetype plugin on       " ÉèÖÃŒÓÔØ¶ÔÓŠÎÄŒþÀàÐÍµÄ²åŒþ
+set noeb                 " ¹Ø±ÕŽíÎóµÄÌáÊŸ
+syntax enable            " ¿ªÆôÓï·šžßÁÁ¹ŠÄÜ
+syntax on                " ×Ô¶¯Óï·šžßÁÁ
+set t_Co=256             " ¿ªÆô256É«Ö§³Ö
+set cmdheight=2          " ÉèÖÃÃüÁîÐÐµÄžß¶È
+set showcmd              " selectÄ£ÊœÏÂÏÔÊŸÑ¡ÖÐµÄÐÐÊý
+set ruler                " ×ÜÊÇÏÔÊŸ¹â±êÎ»ÖÃ
+set laststatus=2         " ×ÜÊÇÏÔÊŸ×ŽÌ¬Àž
+set number               " ¿ªÆôÐÐºÅÏÔÊŸ
+set cursorline           " žßÁÁÏÔÊŸµ±Ç°ÐÐ
+set whichwrap+=<,>,h,l   " ÉèÖÃ¹â±êŒü¿çÐÐ
+set ttimeoutlen=0        " ÉèÖÃ<ESC>ŒüÏìÓŠÊ±Œä
+set virtualedit=block,onemore   " ÔÊÐí¹â±ê³öÏÖÔÚ×îºóÒ»žö×Ö·ûµÄºóÃæ
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ŽúÂëËõœøºÍÅÅ°æ
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set autoindent           " ÉèÖÃ×Ô¶¯Ëõœø
+set cindent              " ÉèÖÃÊ¹ÓÃC/C++ÓïÑÔµÄ×Ô¶¯Ëõœø·œÊœ
+set cinoptions=g0,:0,N-s,(0    " ÉèÖÃC/C++ÓïÑÔµÄŸßÌåËõœø·œÊœ
+set smartindent          " ÖÇÄÜµÄÑ¡Ôñ¶ÔÆä·œÊœ
+filetype indent on       " ×ÔÊÊÓŠ²»Í¬ÓïÑÔµÄÖÇÄÜËõœø
+set expandtab            " œ«ÖÆ±í·ûÀ©Õ¹Îª¿Õžñ
+set tabstop=4            " ÉèÖÃ±àŒ­Ê±ÖÆ±í·ûÕŒÓÃ¿ÕžñÊý
+set shiftwidth=4         " ÉèÖÃžñÊœ»¯Ê±ÖÆ±í·ûÕŒÓÃ¿ÕžñÊý
+set softtabstop=4        " ÉèÖÃ4žö¿ÕžñÎªÖÆ±í·û
+set smarttab             " ÔÚÐÐºÍ¶Î¿ªÊŒŽŠÊ¹ÓÃÖÆ±í·û
+set nowrap               " œûÖ¹ÕÛÐÐ
+set backspace=2          " Ê¹ÓÃ»Ø³µŒüÕý³£ŽŠÀíindent,eol,startµÈ
+set sidescroll=10        " ÉèÖÃÏòÓÒ¹ö¶¯×Ö·ûÊý
+set nofoldenable         " œûÓÃÕÛµþŽúÂë
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ŽúÂë²¹È«
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set wildmenu             " vim×ÔÉíÃüÃûÐÐÄ£ÊœÖÇÄÜ²¹È«
+set completeopt-=preview " ²¹È«Ê±²»ÏÔÊŸŽ°¿Ú£¬Ö»ÏÔÊŸ²¹È«ÁÐ±í
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ËÑË÷ÉèÖÃ
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set hlsearch            " žßÁÁÏÔÊŸËÑË÷œá¹û
+set incsearch           " ¿ªÆôÊµÊ±ËÑË÷¹ŠÄÜ
+set ignorecase          " ËÑË÷Ê±ŽóÐ¡ÐŽ²»ÃôžÐ
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" »ºŽæÉèÖÃ
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nobackup            " ÉèÖÃ²»±ž·Ý
+set noswapfile          " œûÖ¹Éú³ÉÁÙÊ±ÎÄŒþ
+set autoread            " ÎÄŒþÔÚvimÖ®ÍâÐÞžÄ¹ý£¬×Ô¶¯ÖØÐÂ¶ÁÈë
+set autowrite           " ÉèÖÃ×Ô¶¯±£Žæ
+set confirm             " ÔÚŽŠÀíÎŽ±£Žæ»òÖ»¶ÁÎÄŒþµÄÊ±ºò£¬µ¯³öÈ·ÈÏ
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ±àÂëÉèÖÃ
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set langmenu=zh_CN.UTF-8
+set helplang=cn
+set termencoding=utf-8
+set encoding=utf-8
+set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
+set scrolloff=3
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" gvim/macvimÉèÖÃ
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has("gui_running")
+    let system = system('uname -s')
+    if system == "Darwin\n"
+        set guifont=Droid\ Sans\ Mono\ Nerd\ Font\ Complete:h18 " ÉèÖÃ×ÖÌå
+    else
+        set guifont=DroidSansMono\ Nerd\ Font\ Regular\ 18      " ÉèÖÃ×ÖÌå
+    endif
+    set guioptions-=m           " Òþ²Ø²Ëµ¥Àž
+    set guioptions-=T           " Òþ²Ø¹€ŸßÀž
+    set guioptions-=L           " Òþ²Ø×ó²à¹ö¶¯Ìõ
+    set guioptions-=r           " Òþ²ØÓÒ²à¹ö¶¯Ìõ
+    set guioptions-=b           " Òþ²Øµ×²¿¹ö¶¯Ìõ
+    set showtabline=0           " Òþ²ØTabÀž
+    set guicursor=n-v-c:ver5    " ÉèÖÃ¹â±êÎªÊúÏß
+endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ð¶ÔØÄ¬ÈÏ²åŒþUnPlug
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! s:deregister(repo)
+  let repo = substitute(a:repo, '[\/]\+$', '', '')
+  let name = fnamemodify(repo, ':t:s?\.git$??')
+  call remove(g:plugs, name)
+endfunction
+command! -nargs=1 -bar UnPlug call s:deregister(<args>)
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ²åŒþÁÐ±í
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call plug#begin('~/.vim/plugged')
+    Plug 'chxuan/vim-edit'
+    Plug 'chxuan/vimplus-startify'
+    Plug 'preservim/tagbar'
+    Plug 'Valloric/YouCompleteMe'
+    Plug 'Yggdroot/LeaderF'
+    Plug 'mileszs/ack.vim'
+    Plug 'easymotion/vim-easymotion'
+    Plug 'haya14busa/incsearch.vim'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'preservim/nerdtree'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'godlygeek/tabular'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-commentary'
+    Plug 'voldikss/vim-translator'
+    Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-endwise'
+    Plug 'francoiscabrol/ranger.vim'
+    Plug 'vim-/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'junegunn/vim-slash'
+    Plug 'junegunn/gv.vim'
+    Plug 'kana/vim-textobj-user'
+    Plug 'kana/vim-textobj-syntax'
+    Plug 'kana/vim-textobj-function'
+    Plug 'sgur/vim-textobj-parameter'
+    Plug 'Shougo/echodoc.vim'
+    Plug 'terryma/vim-smooth-scroll'
+    Plug 'rhysd/clever-f.vim'
+    Plug 'vim-scripts/indentpython.vim'
+    Plug 'iamcco/mathjax-support-for-mkdp'
+    Plug 'plasticboy/vim-markdown'
+    Plug 'mzlogin/vim-markdown-toc'
+    Plug 'iamcco/markdown-preview.vim'
+    Plug 'luochen1990/rainbow' 
+"Plug 'puremourning/vimspector' 
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    Plug 'mbbill/undotree'
+    Plug 'roxma/vim-hug-neovim-rpc'
+    Plug 'roxma/nvim-yarp'
+    Plug 'kristijanhusak/defx-icons'
+    Plug 'kristijanhusak/defx-git'
+    Plug 'raingo/vim-matlab'
+    Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+if filereadable(expand($HOME . '/.vimrc.custom.plugins'))
+    source $HOME/.vimrc.custom.plugins
+endif
+
+call plug#end() 
+
+" load vim default plugin
+runtime macros/matchit.vim
+
+" 有关­vimrc的设置
+nnoremap <leader>e :edit $MYVIMRC<cr>
+nnoremap <leader>vc :edit ~/.vimrc.custom.config<cr>
+nnoremap <leader>vp :edit ~/.vimrc.custom.plugins<cr>
+nnoremap <leader>ev :edit ~/.vimrc<cr>
+nnoremap <leader>sv :source ~/.vimrc<cr>
+map <F9> :<c-w>w 
+" vimplus
+nnoremap <leader>h :view +let\ &l:modifiable=0 ~/.vimplus/help.md<cr>
+
+" vim
+nnoremap <leader>H :execute ":help " . expand("<cword>")<cr>
+
+" vimrc
+nnoremap <leader>s :source $MYVIMRC<cr>
+
+" ·ÖÆÁŽ°¿ÚÒÆ¶¯
+nnoremap <c-j> :resize +5<cr>
+nnoremap <c-k> :resize -5<cr>
+nnoremap <c-h> :vertical resize -5<cr>
+nnoremap <c-l> :vertical resize +5<cr>
+
+" 复制到粘贴板
+vmap <leader><leader>y "+y
+
+" 粘贴到粘贴板
+nnoremap <leader><leader>p "+p
+
+" Žò¿ªÎÄŒþ×Ô¶¯¶šÎ»iµœ×îºó±àŒ­µÄÎ»ÖÃ
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | endif
+
+" Ö÷ÌâÉèÖÃ
+set background=dark
+let g:onedark_termcolors=256
+colorscheme murphy
+" airline
+let g:airline_theme="bubblegum"
+
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_left_sep =''
+let g:airline_left_alt_sep =''
+let g:airline_right_sep =''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.dirty= '⚡'
+
+" vim-edit
+nnoremap Y :CopyText<cr>
+nnoremap D :DeleteText<cr>
+nnoremap C :ChangeText<cr>
+"nnoremap <leader>r :ReplaceTo<space>
+
+" nerdtree
+nnoremap <F3>  :NERDTreeToggle<cr>
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
+let g:NERDTreeHighlightFolders = 1        
+let g:NERDTreeHighlightFoldersFullName = 1
+let g:NERDTreeDirArrowExpandable='?'
+let g:NERDTreeDirArrowCollapsible='▼'
+" YCM
+" Èç¹û²»Öž¶špythonœâÊÍÆ÷Â·Ÿ¶£¬ycm»á×ÔŒºËÑË÷Ò»žöºÏÊÊµÄ(Óë±àÒëycmÊ±Ê¹ÓÃµÄpython°æ±ŸÆ¥Åä)
+" let g:ycm_server_python_interpreter = '/usr/bin/python2.7'
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_error_symbol = '✗'
+let g:ycm_warning_symbol = '⚠'
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_semantic_triggers =  {
+            \   'c' : ['->', '.','re![_a-zA-z0-9]'],
+            \   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
+            \             're!\[.*\]\s'],
+            \   'ocaml' : ['.', '#'],
+            \   'cpp,objcpp' : ['->', '.', '::','re![_a-zA-Z0-9]'],
+            \   'perl' : ['->'],
+            \   'php' : ['->', '::'],
+            \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+            \   'ruby' : ['.', '::'],
+            \   'lua' : ['.', ':'],
+            \   'erlang' : [':'],
+            \ }
+nnoremap <leader>u :YcmCompleter GoToDeclaration<cr>
+" ÒÑŸ­Ê¹ÓÃcpp-mode²åŒþÌá¹©µÄ×ªµœº¯ÊýÊµÏÖµÄ¹ŠÄÜ
+" nnoremap <leader>i :YcmCompleter GoToDefinition<cr>
+nnoremap <leader>o :YcmCompleter GoToInclude<cr>
+nnoremap <leader>ff :YcmCompleter FixIt<cr>
+nmap <F5> :YcmDiags<cr>
+
+" tagbar
+let g:tagbar_width = 30
+nnoremap <F4> :TagbarToggle<cr>
+
+" incsearch.vim
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+" vim-easymotion
+let g:EasyMotion_smartcase = 1
+"let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
+map <Leader><leader>h <Plug>(easymotion-linebackward)
+map <Leader><Leader>j <Plug>(easymotion-j)
+map <Leader><Leader>k <Plug>(easymotion-k)
+map <Leader><leader>l <Plug>(easymotion-lineforward)
+" 重复上一次操作, 类似repeat插件, 很强大
+map <Leader><leader>. <Plug>(easymotion-repeat)
+
+" nerdtree-git-plugin
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
+" LeaderF
+nnoremap <leader>f :LeaderfFile .<cr>
+let g:Lf_WildIgnore = {
+            \ 'dir': ['.svn','.git','.hg','.vscode','.wine','.deepinwine','.oh-my-zsh'],
+            \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
+            \}
+let g:Lf_UseCache = 0
+
+" ack
+nnoremap <leader>a :Ack!<space>
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
+
+" echodoc.vim
+let g:echodoc_enable_at_startup = 1
+
+" tabular
+nnoremap <leader>l :Tab /\|<cr>
+nnoremap <leader>= :Tab /=<cr>
+
+" vim-smooth-scroll
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+
+" gv
+nnoremap <leader>g :GV<cr>
+nnoremap <leader>G :GV!<cr>
+nnoremap <leader>gg :GV?<cr>
+
+" ŒÓÔØ×Ô¶šÒåÅäÖÃ
+if filereadable(expand($HOME . '/.vimrc.custom.config'))
+    source $HOME/.vimrc.custom.config
+endif
+
+map <F2> :call CompileRunGcc()<CR>
+    func! CompileRunGcc()
+        exec "w"
+if &filetype == 'c'
+            exec "!g++ % -o %<"
+            exec "!time ./%<"
+elseif &filetype == 'cpp'
+            exec "!g++ % -o %<"
+            exec "!time ./%<"
+elseif &filetype == 'java'
+            exec "!javac %"
+            exec "!time java %<"
+elseif &filetype == 'sh'
+            :!time bash %
+elseif &filetype == 'python'
+            exec "!time python %"
+elseif &filetype == 'html'
+            exec "!firefox % &"
+elseif &filetype == 'go'
+    "        exec "!go build %<"
+            exec "!time go run %"
+elseif &filetype == 'mkd'
+            exec "!~/.vim/markdown.pl % > %.html &"
+            exec "!firefox %.html &"
+endif
+    endfunc
+    let g:mkdp_path_to_chrome = ""
+    " Path to the chrome or the command to open chrome (or other modern browsers).
+    " If set, g:mkdp_browserfunc would be ignored.
+
+    let g:mkdp_browserfunc = 'MKDP_browserfunc_default'
+    " Callback Vim function to open browser, the only parameter is the url to open.
+
+    let g:mkdp_auto_start = 0
+    " Set to 1, Vim will open the preview window on entering the Markdown
+    " buffer.
+
+    let g:mkdp_auto_open = 0
+    " Set to 1, Vim will automatically open the preview window when you edit a
+    " Markdown file.
+
+    let g:mkdp_auto_close = 1
+    " Set to 1, Vim will automatically close the current preview window when
+    " switching from one Markdown buffer to another.
+    let g:mkdp_refresh_slow = 0
+    " Set to 1, Vim will just refresh Markdown when saving the buffer or
+    " leaving from insert mode. With default 0, it will automatically refresh
+    " Markdown as you edit or move the cursor.
+
+    let g:mkdp_command_for_global = 0
+    " Set to 1, the MarkdownPreview command can be used for all files,
+    " by default it can only be used in Markdown files.
+
+    let g:mkdp_open_to_the_world = 0
+    " Set to 1, the preview server will be available to others in your network.
+    " By default, the server only listens on localhost (127.0.0.1).
+
+
+" for normal mode
+nmap <silent> <F7> <Plug>MarkdownPreview
+" for insert mode
+imap <silent> <F7> <Plug>MarkdownPreview
+" for normal mode
+nmap <silent> <F8> <Plug>StopMarkdownPreview
+" for insert mode
+imap <silent> <F8> <Plug>StopMarkdownPreview
+nnoremap <c-p> :Leaderf file<CR>
+" noremap <silent> <C-p> :Files<CR>
+noremap <silent> <C-f> :Rg<CR>
+"noremap <silent> <C-h> :History<CR>
+"noremap <C-t> :BTags<CR>
+" noremap <silent> <C-l> :Lines<CR>
+noremap <silent> <C-w> :Buffers<CR>
+noremap <leader>; :History:<CR>
+
+let g:fzf_preview_window = 'right:60%'
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+function! s:list_buffers()
+  redir => list
+  silent ls
+  redir END
+  return split(list, "\n")
+endfunction
+
+function! s:delete_buffers(lines)
+  execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
+endfunction
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)
+nnoremap <silent> <Leader>ag :Ag<CR>
+
+"command! BD call fzf#run(fzf#wrap({
+  "\ 'source': s:list_buffers(),
+  "\ 'sink*': { lines -> s:delete_buffers(lines) },
+  "\ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
+"\ }))
+
+
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
+
+
+noremap <F6>  :UndotreeToggle<CR>
+let g:undotree_DiffAutoOpen = 1
+let g:undotree_SetFocusWhenToggle = 1
+let g:undotree_ShortIndicators = 1
+let g:undotree_WindowLayout = 2
+let g:undotree_DiffpanelHeight = 8
+let g:undotree_SplitWidth = 24
+function g:Undotree_CustomMap()
+     nmap <buffer> u <plug>UndotreeNextState
+     nmap <buffer> e <plug>UndotreePreviousState
+     nmap <buffer> U 5<plug>UndotreeNextState
+     nmap <buffer> E 5<plug>UndotreePreviousState
+endfunc
+"" puremourning/vimspector                                                 
+"nnoremap <leader>da :call vimspector#Launch()<CR>
+"nnoremap <leader>dx :call vimspector#Reset()<CR>  
+"nnoremap <S-k> :call vimspector#StepOut()<CR>  
+"nnoremap <S-l> :call vimspector#StepInto()<CR> 
+"nnoremap <S-j> :call vimspector#StepOver()<CR>
+"nnoremap <leader>d_ :call vimspector#Restart()<CR>
+"nnoremap <leader>dn :call vimspector#Continue()<CR>                 
+"nnoremap <leader>drc :call vimspector#RunToCursor()<CR>                 
+"nnoremap <leader>dh :call vimspector#ToggleBreakpoint()<CR>               
+"nnoremap <leader>de :call vimspector#ToggleConditionBreakpoint()<CR>      
+"nnoremap_<leader>dX :call vimspector#ClearBreakpoints()<CR>
+filetype indent on
+"set fileformat = unix
+autocmd BufEnter *.m compiler mlint
+let g:rang_map_keys=0
+map <leader><leader>r :Ranger<CR>
+let g:vmt_auto_update_on_save=0
+function RToc()
+    exe "/-toc .* -->"
+    let lstart=line('.')
+    exe  "/-toc -->"
+    let lnum=line('.')
+    execute lstart.",".lnum."g/             /d"
+endfunction
+
+function! RunSelectInMatlab() 
+    range  '<,'> write! matlab_tmp.m 
+    silent !echo delete\(\'matlab_tmp.m\'\)\; >> matlab_tmp.m && scree -S matlab -X stuff 'matlab_tmp^M'
+    redraw! 
+endfunction 
+function! RunCurrentFileInMatlab()
+    execute "silent !screen -S matlab -X stuff '".strpart(@%,0,len(@%)-2)."^M'" 
+    redraw! 
+endfunction 
+function! GetMatlabDoc() 
+    execute "silent !screen -S matlab -X stuff 'doc ".expand("<cword>")."^M'" 
+    redraw! 
+endfunction
+"function! RunSelectInMatlab() 
+    "range  '<,'> write! matlab_tmp.m 
+    "silent !echo delete\(\'matlab_tmp.m\'\)\; >> matlab_tmp.m && tmux new-window matlab -X stuff 'matlab_tmp^M'
+    "redraw! 
+"endfunction 
+"function! RunCurrentFileInMatlab()
+    "execute "silent ! tmux new-window matlab -X stuff '".strpart(@%,0,len(@%)-2)."^M'" 
+    "redraw! 
+"endfunction 
+"function! GetMatlabDoc() 
+    "execute "silent !tmux new-window matlab -X stuff 'doc ".expand("<cword>")."^M'" 
+    "redraw! 
+"endfunction
+autocmd FileType matlab vnoremap <leader>m :call RunSelectInMatlab()<CR> 
+autocmd FileType matlab nnoremap <leader>m :call RunCurrentFileInMatlab()<CR> 
+autocmd FileType matlab nnoremap <Leader>md :call GetMatlabDoc()<CR>
+" ----------------------------- plugin rainbow start -----------------------------
+let g:rainbow_active = 1
+" ----------------------------- plugin rainbow end   -----------------------------
+\    'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+\    'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+\    'guis': [''],
+\    'cterms': [''],
+\    'operators': '_,_',
+\    'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+\    'separately': {
+\        '*': {},
+\        'markdown': {
+\            'parentheses_options': 'containedin=markdownCode contained', "enable rainbow for code blocks only
+\        },
+\        'lisp': {
+\            'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'], "lisp needs more colors for parentheses :)
+\        },
+\        'haskell': {
+\            'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/\v\{\ze[^-]/ end=/}/ fold'], "the haskell lang pragmas should be excluded
+\        },
+\        'vim': {
+\            'parentheses_options': 'containedin=vimFuncBody', "enable rainbow inside vim function body
+\        },
+\        'perl': {
+\            'syn_name_prefix': 'perlBlockFoldRainbow', "solve the [perl indent-depending-on-syntax problem](https://github.com/luochen1990/rainbow/issues/20)
+\        },
+\        'stylus': {
+\            'parentheses': ['start=/{/ end=/}/ fold contains=@colorableGroup'], "[vim css color](https://github.com/ap/vim-css-color) compatibility
+\        },
+\        'css': 0, "disable this plugin for css files
+\    }
+\}
+" Create default mappings
+let g:NERDCreateDefaultMappings = 1
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1
+call defx#custom#option('_', {
+            \ 'winwidth': 30,
+            \ 'split': 'vertical',
+            \ 'direction': 'topleft',
+            \ 'show_ignored_files': 0,
+            \ 'buffer_name': '',
+            \ 'toggle': 1,
+            \ 'resume': 1
+            \ })
+
+autocmd FileType defx call s:defx_my_settings()
+function! s:defx_my_settings() abort
+    " Define mappings
+    setl nonu                            " 勿在 defx 栏显示行号
+    nnoremap <silent><buffer><expr> <CR> 
+                \ defx#is_directory() ?
+                \ defx#do_action('open_or_close_tree') :
+                \ defx#do_action('drop',)
+    nnoremap <silent><buffer><expr> c    " 复制
+                \ defx#do_action('copy')
+    nnoremap <silent><buffer><expr> K    " 新建文件夾
+                \ defx#do_action('new_directory')
+    nnoremap <silent><buffer><expr> N    " 新建文件
+                \ defx#do_action('new_file')
+endfunction
+nmap <silent> <leader>de :Defx -columns=indent:icons:git:filename:type<cr>
+
+""" Configuration example
+" Echo translation in the cmdline
+nmap <silent> <Leader>t <Plug>Translate
+vmap <silent> <Leader>t <Plug>TranslateV
+" Display translation in a window
+nmap <silent> <Leader>w <Plug>TranslateW
+vmap <silent> <Leader>w <Plug>TranslateWV
