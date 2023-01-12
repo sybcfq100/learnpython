@@ -1,7 +1,23 @@
 # """
+# 分段函数求值
+
+# Version: 0.1
+# Author: 骆昊
+# """
+
+# x = float(input('x = '))
+# if x > 1:
+#     y = 3 * x - 5
+# elif x >= -1:
+#     y = x + 2
+# else:
+#     y = 5 * x + 3
+# print(f'f({x}) = {y}')
+# print('f(%s) = %s' % (x, y))
+# '''
 # 说明：水仙花数也被称为超完全数字不变数、自恋数、自幂数、阿姆斯特朗数，
 # 它是一个3位数，该数字每个位上数字的立方之和正好等于它本身，例如：$1^3 + 5^3+ 3^3=153$。
-# """
+# '''
 # for num in range(100, 1000):
 #     low = num%10
 #     mid = num//10%10
@@ -16,38 +32,37 @@
 #             print('公鸡: %d, 母鸡：%d， 小鸡: %d' % (x, y, z))
 
 
-from random import randint
+# from random import randint
 
-money = 1000
-while money > 0:
-    print('you have:', money)
-    needs_go_on = False
-    while True:
-        debt = int(input('debt: '))
-        if 0 < debt <= money:
-            break
-    first = randint(1, 6) + randint(1, 6)
-    print('you got %d' % first)
-    if first in [7, 11]:
-        print('You win!')
-        money += debt
-    elif first in [2, 3, 12]:
-        print('You lose!')
-        money = money - debt
-    else:
-        needs_go_on = True
-    while needs_go_on:
-        needs_go_on = False
-        current = randint(1, 6) + randint(1, 6)
-        print('Yor got %d' % current)
-        if current == 7:
-            print('You lose')
-            money = money - debt
-        elif current == first:
-            print('You win!')
-            money = money + debt
-        else:
-            needs_go_on = True
-print('You are poor!')
-
+# money = 1000
+# while money > 0:
+#     print('you have:', money)
+#     needs_go_on = False
+#     while True:
+#         debt = int(input('debt: '))
+#         if 0 < debt <= money:
+#             break
+#     first = randint(1, 6) + randint(1, 6)
+#     print('you got %d' % first)
+#     if first in [7, 11]:
+#         print('You win!')
+#         money += debt
+#     elif first in [2, 3, 12]:
+#         print('You lose!')
+#         money = money - debt
+#     else:
+#         needs_go_on = True
+#     while needs_go_on:
+#         needs_go_on = False
+#         current = randint(1, 6) + randint(1, 6)
+#         print('Yor got %d' % current)
+#         if current == 7:
+#             print('You lose')
+#             money = money - debt
+#         elif current == first:
+#             print('You win!')
+#             money = money + debt
+#         else:
+#             needs_go_on = True
+# print('You are poor!')
 
