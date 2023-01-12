@@ -38,6 +38,33 @@
 
 
 # from math import sqrt
+'''
+计算最大公约数和最小公倍数
+'''
+
+x = int(input('x = '))
+y = int(input('y = '))
+for factor in range(x, 0, -1):
+    if x % factor == 0 and y % factor == 0:
+        print(f'{x}和{y}的最大公约数是{factor}')
+        print(f'{x}和{y}的最小公倍数是{x*y//factor}')
+        break
+# '''
+# 输入一个数，判断是不是素数
+# '''
+
+
+# num = int(input('inter a number: '))
+# end = int(num**0.5)
+# isPrime = True
+# for x in range(2, end):
+#     if num%x == 0:
+#         isPrime = False
+#         break
+# if isPrime and num != 1:
+#     print(f'{num} is prime!')
+# else:   
+#     print(f'{num} is not prime!')
 
 
 # def is_prime(n):
@@ -75,6 +102,6 @@
 #     main()
 
 
-shakes = open('shakespeare.txt')
-text = shakes.read().split()
-len(text)
+# shakes = open('shakespeare.txt')
+# text = shakes.read().split()
+# len(text)
