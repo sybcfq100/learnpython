@@ -69,7 +69,32 @@
 # print(f'4 点出现了{f4}次')
 # print(f'5 点出现了{f5}次')
 # print(f'6 点出现了{f6}次')
-        
-items5 = [1,2,3,4]
-items7 = [3,2,1]
-print(items5 <= items7)
+
+# 用字典生成式语法创建字典
+# items = {x: x**3 for x in range(6)}
+# print(items)
+# 
+# sentence = input('请输入一段话: ')
+# counter = {}
+# for _ in sentence:
+    # if 'A' <= _ <= 'Z' or 'a' <= _ <= 'z':
+        # counter[_] = counter.get(_, 0) + 1
+# for key, value in counter.items():
+    # print(f'字母{key}出现了{value}次.')
+
+import random
+import string
+
+ALL_CHARS = string.digits + string.ascii_letters
+
+
+def generate_code(code_len=4):
+    """生成指定长度的验证码
+    
+    :param code_len: 验证码的长度(默认4个字符)
+    :return: 由大小写英文字母和数字构成的随机验证码字符串
+    """
+    return ''.join(random.choices(ALL_CHARS, k=code_len))
+
+for _ in range(10):
+    print(generate_code())
