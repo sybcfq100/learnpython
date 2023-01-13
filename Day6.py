@@ -82,19 +82,111 @@
 # for key, value in counter.items():
     # print(f'字母{key}出现了{value}次.')
 
-import random
-import string
+# import random
+# import string
 
-ALL_CHARS = string.digits + string.ascii_letters
+# ALL_CHARS = string.digits + string.ascii_letters
 
 
-def generate_code(code_len=4):
-    """生成指定长度的验证码
+# def generate_code(code_len=4):
+#     """生成指定长度的验证码
     
-    :param code_len: 验证码的长度(默认4个字符)
-    :return: 由大小写英文字母和数字构成的随机验证码字符串
-    """
-    return ''.join(random.choices(ALL_CHARS, k=code_len))
+#     :param code_len: 验证码的长度(默认4个字符)
+#     :return: 由大小写英文字母和数字构成的随机验证码字符串
+#     """
+#     return ''.join(random.choices(ALL_CHARS, k=code_len))
 
-for _ in range(10):
-    print(generate_code())
+# for _ in range(10):
+#     print(generate_code())
+
+#!/usr/bin/python3
+
+# def get_suffix(filename, ignore_dot=True):
+#     """获取文件名的后缀名
+    
+#     :param filename: 文件名
+#     :param ignore_dot: 是否忽略后缀名前面的点
+#     :return: 文件的后缀名
+#     """
+#     # 从字符串中逆向查找.出现的位置
+#     pos = filename.rfind('.')
+#     # 通过切片操作从文件名中取出后缀名
+#     if pos <= 0:
+#         return ''
+#     return filename[pos + 1:] if ignore_dot else filename[pos:]
+
+# print(get_suffix('readme.txt'))       # txt
+# print(get_suffix('readme.txt.md'))    # md
+# print(get_suffix('.readme'))          #
+# print(get_suffix('readme.'))          #
+# print(get_suffix('readme'))           #
+
+# from os.path import splitext
+
+# def get_suffix(filename, ignore_dot=True):
+#     return splitext(filename)[1][1:] if ignore_dot else splitext(filename)[1]
+
+# print(get_suffix('readme.txt'))       # txt
+# print(get_suffix('readme.txt.md'))    # md
+# print(get_suffix('.readme'))          #
+# print(get_suffix('readme.'))          #
+# print(get_suffix('readme'))           #
+
+
+# import math
+
+
+# def ptp(data):
+#     """求极差（全距）"""
+#     return max(data) - min(data)
+
+
+# def average(data):
+#     """求均值"""
+#     return sum(data) / len(data)
+
+
+# def variance(data):
+#     """求方差"""
+#     x_bar = average(data)
+#     temp = [(num - x_bar) ** 2 for num in data]
+#     return sum(temp) / (len(temp) - 1)
+
+
+# def standard_deviation(data):
+#     """求标准差"""
+#     return math.sqrt(variance(data))
+
+
+# def median(data):
+#     """找中位数"""
+#     temp, size = sorted(data), len(data)
+#     if size % 2 != 0:
+#         return temp[size // 2]
+#     else:
+#         return average(temp[size // 2 - 1:size // 2 + 1])
+
+        
+# data = range(16)
+# print(median(data))
+
+# def isTriangle(a,b,c):
+#     print(f'a={a},b={b},c={c}')
+#     return a+b>c and b+c>0 and a+c >b
+
+# print(isTriangle(3,4,1))
+
+
+# Important
+def calc(*args, **kwargs):
+    result = sum(arg for arg in args if type(arg) in (int, float))
+    for value in kwargs.values():
+        if type(value) in (int, float):
+            result += value
+    return result
+
+
+print(calc())                  # 0
+print(calc(1, 2, 3))           # 6
+print(calc(a=1, b=2, c=3))     # 6
+print(calc(1, 2, c=3, d=4))    # 10
