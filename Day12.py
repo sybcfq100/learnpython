@@ -49,7 +49,6 @@
 #         print(f'{self.name}{self.title}正在讲授{course_name}.')
 
 
-
 # stu1 = Student('白元芳', 21)
 # stu2 = Student('狄仁杰', 22)
 # teacher = Teacher('武则天', 35, '副教授')
@@ -169,50 +168,69 @@
 #  for player in players:
 #      player.arrange()
 #      print(f'{player.name}: ', end='')
-    #  print(player.cards)
+#  print(player.cards)
 
 
-from abc import ABCMeta, abstractmethod
+#  from abc import ABCMeta, abstractmethod
+#
+#
+#  class Employee(metaclass=ABCMeta):
+#
+#      def __init__(self, name):
+#          self.name = name
+#
+#      @abstractmethod
+#      def get_salary(self):
+#
+#          pass
+#
+#
+#  class Manager(Employee):
+#
+#      def get_salary(self):
+#          return 15000.0
+#
+#
+#  class Programmer(Employee):
+#
+#      def __init__(self, name, working_hour=0):
+#          super().__init__(name)
+#          self.working_hour = working_hour
+#
+#      def get_salary(self):
+#          return 200*self.working_hour
+#
+#
+#  class Salesman(Employee):
+#
+#      def __init__(self, name, sales=0):
+#          super().__init__(name)
+#          self.sales = sales
+#
+#      def get_salary(self):
+#          return 1800 + self.sales * 0.05
+#
+#
+#  emps = [Manager('刘备'), Programmer('诸葛亮'), Manager('曹操'),
+#          Programmer('荀彧'), Salesman('吕布'), Programmer('张辽')]
+#
+#  for emp in emps:
+#      if isinstance(emp, Programmer):
+#          emp.working_hour = int(input(f'请输入{emp.name}本月工作时间: '))
+#      elif isinstance(emp, Salesman):
+#          emp.sales = int(input(f'请输入{emp.name}本月销售额: '))
+    #  print(f'{emp.name}本月工资为：￥{emp.get_salary():.2f}元')
 
-class Employee(metaclass=ABCMeta):
-
-    def __init__(self, name):
-        self.name = name
-
-    @abstractmethod
-    def get_salary(self):
-
-        pass
-
-class Manager(Employee):
-
-    def get_salary(self):
-        return 15000.0
-
-class Programmer(Employee):
-
-    def __init__(self, name, working_hour=0):
-        super().__init__(name)
-        self.working_hour = working_hour
-
-    def get_salary(self):
-        return 200*self.working_hour
-class Salesman(Employee):
-
-    def __init__(self, name, sales = 0):
-        super().__init__(name)
-        self.sales = sales
-
-    def get_salary(self):
-        return 1800 + self.sales * 0.05
-
-emps = [Manager('刘备'), Programmer('诸葛亮'), Manager('曹操'), Programmer('荀彧'), Salesman('吕布'), Programmer('张辽')]
-
-for emp in emps:
-    if isinstance(emp, Programmer):
-        emp.working_hour = int(input(f'请输入{emp.name}本月工作时间: '))
-    elif isinstance(emp, Salesman):
-        emp.sales = int(input(f'请输入{emp.name}本月销售额: '))
-    print(f'{emp.name}本月工资为：￥{emp.get_salary():.2f}元')
-
+#  from collections import Counter
+#
+#  words = [
+#      'look', 'into', 'my', 'eyes', 'look', 'into', 'my', 'eyes',
+#      'the', 'eyes', 'the', 'eyes', 'the', 'eyes', 'not', 'around',
+#      'the', 'eyes', "don't", 'look', 'around', 'the', 'eyes',
+#      'look', 'into', 'my', 'eyes', "you're", 'under'
+#  ]
+#  counter = Counter(words)
+#  # 打印words列表中出现频率最高的3个元素及其出现次数
+#  for elem, count in counter.most_common(3):
+    #  print(elem, count)
 
