@@ -14,9 +14,17 @@
 # if __name__ == '__main__':
 #     main()
 
-a, b = 5, 10
-print(f'{a} * {b} = {a*b}')
+# numbers1 = [35, 12, 8, 99, 60, 52]
+# numbers2 = list(map(lambda x: x ** 2, filter(lambda x: x % 2 == 0, numbers1)))
+# print(numbers2)    # [144, 64, 3600, 2704]
 
+def fib(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+
+print(fib(10))
 # list1 = [1,3,5,7,100]
 # for index in range(len(list1)):
 #     print(list1[index])
