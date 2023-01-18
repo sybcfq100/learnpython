@@ -72,22 +72,22 @@
 #         print('%d and %d 的最小公倍数是 %d' % (x, y, x*y//factor))
 #         break
 
-row = int(input('inter number of row: '))
+# row = int(input('inter number of row: '))
 # for i in range(row):
 #     for j in range(i+1):     # 如果在嵌套中用不到j，则可以用 _ 表示，作用是占位符
 #         print('*', end='')
 #     print()
-for i in range(row):
-    for j in range(row):
-        if j<row-i-1:
-            print(' ', end='')
-        else:
-            print('*', end='')
-    print()
+# for i in range(row):
+#     for j in range(row):
+#         if j<row-i-1:
+#             print(' ', end='')
+#         else:
+#             print('*', end='')
+#     print()
 # // fibonacci ?
 # def fib(n):
 #   a = 0
-#   b = 1
+#   b = 1G
 #   while b<n:
 #     print (b) 
 #     temp = a
@@ -101,3 +101,23 @@ for i in range(row):
 # for _ in range(num):
 #     (a, b) = (b, a+b)
 #     print(a, end='\n')
+
+
+# def largest_factor(n):
+#     for i in range(n-1, 1,-1):
+#         if n % i == 0:
+#            print(i)
+#            break
+#     else:
+#         print(1) 
+# largest_factor(79)
+
+def prime_factors(n):
+    while n > 1:
+        k = 2
+        while n % k != 0:
+            k += 1
+        n = n/k    # in the video teacher uses // i replace it by /, question is when it would be wrong?
+        print(k) 
+
+prime_factors(78)

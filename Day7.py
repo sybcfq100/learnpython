@@ -9,8 +9,7 @@
 #         time.sleep(0.2)
 #         content = content[1:]+content[0]
 
-        
-        
+
 # if __name__ == '__main__':
 #     main()
 
@@ -18,20 +17,33 @@
 # numbers2 = list(map(lambda x: x ** 2, filter(lambda x: x % 2 == 0, numbers1)))
 # print(numbers2)    # [144, 64, 3600, 2704]
 
-def fib(n):
-    a, b = 0, 1
-    for _ in range(n):
-        a, b = b, a + b
-    return a
+import matplotlib.pyplot as plt
+f = []
 
-print(fib(10))
+
+def fib(n):
+    pred, curr = 1, 0
+    k = 0
+    while k < n:
+        pred, curr = curr, pred + curr
+        k += 1
+    return curr
+
+
+for i in range(1, 30):
+    y = fib(i)
+    f.append(y)
+fig, ax = plt.subplots()
+plt.plot(f, 'bo-')
+plt.show()
+
 # list1 = [1,3,5,7,100]
 # for index in range(len(list1)):
 #     print(list1[index])
 
 # for elem in list1:
 #     print(elem)
-    
+
 # for index, elem in enumerate(list1):
 #     print(index, '\t', elem)
 
@@ -52,5 +64,3 @@ print(fib(10))
 # print(f)
 # for val in f:
 #     print(val)
-
-
