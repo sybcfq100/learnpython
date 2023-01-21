@@ -74,19 +74,71 @@
 #  return items
 #
 #  排序算法--冒泡
-def bubble_sort(items, comp=lambda x, y: x > y):
-    items = items[:]
-    for i in range(len(items) - 1):
-        swapped = False
-        for j in range(len(items) - 1 - i):
-            if comp(items[j], items[j + 1]):
-                items[j], items[j + 1] = items[j + 1], items[j]
-                swapped = True
-        if not swapped:
-            break
+#  def bubble_sort(items, comp=lambda x, y: x > y):
+#      items = items[:]
+#      for i in range(len(items) - 1):
+#          swapped = False
+#          for j in range(len(items) - 1 - i):
+#              if comp(items[j], items[j + 1]):
+#                  items[j], items[j + 1] = items[j + 1], items[j]
+#                  swapped = True
+#          if not swapped:
+#              break
+#      return items
+#
+#
+#  搅拌排序 冒泡排序的升级版
+#  def bubble_sort(items, comp=lambda x, y: x > y):
+#      items = items[:]
+#      for i in range(len(items) - 1):
+#          swapped = False
+#          for j in range(len(items) - 1 - i):
+#              if comp(items[j], items[j + 1]):
+#                  items[j], items[j + 1] = items[j + 1], items[j]
+#                  swapped = True
+#
+#          if swapped:
+#              swapped = False
+#              for j in range(len(items) - 2 - i, i, -2):
+#                  if comp(items[j - 1], items[j]):
+#                      items[j], items[j - 1] = items[j - 1], items[j]
+#                      swapped = True
+#          if not swapped:
+#              break
+#      return items
+def merge(items1, items2, comp=lambda x, y: x < y):
+    """合并(将两个有序的列表合并成一个有序的列表)"""
+    items = []
+    index1, index2 = 0, 0
+    while index1 < len(items1) and index2 < len(items2):
+        if comp(items1[index1], items2[index2]):
+            items.append(items1[index1])
+            index1 += 1
+        else:
+            items.append(items2[index2])
+            index2 += 1
+    items += items1[index1:]
+    items += items2[index2:]
     return items
 
 
+def merge_sort(items, comp=lambda x, y: x < y):
+    return _merge_sort(list(items), comp)
+
+
+def _merge_sort(items, comp):
+    """归并排序"""
+    if len(items) < 2:
+        return items
+    mid = len(items) // 2
+    left = _merge_sort(items[:mid], comp)
+    right = _merge_sort(items[mid:], comp)
+    return merge(left, right, comp)
+
+
 a = [34, 25, 78, 3, 92, 65]
+b = [14, 85, 48, 30, 22, 55]
+
 #  print(select_sort(a))
-print(bubble_sort(a))
+#  print(bubble_sort(a))
+print(merge(a, b))
