@@ -7,7 +7,6 @@
 #     def study(self, course_name):
 #         print(f'{self.__name}正在学习{course_name}.')
 
-
 # stu = Student('王大锤', 20)
 # stu.study('Python程序设计')
 # print(stu._Student__name, stu._Student__age)
@@ -25,7 +24,6 @@
 #     def sleep(self):
 #         print(f'{self.name}正在睡觉.')
 
-
 # class Student(Person):
 #     """学生类"""
 
@@ -35,7 +33,6 @@
 
 #     def study(self, course_name):
 #         print(f'{self.name}正在学习{course_name}.')
-
 
 # class Teacher(Person):
 #     """老师类"""
@@ -47,7 +44,6 @@
 
 #     def teach(self, course_name):
 #         print(f'{self.name}{self.title}正在讲授{course_name}.')
-
 
 # stu1 = Student('白元芳', 21)
 # stu2 = Student('狄仁杰', 22)
@@ -169,68 +165,82 @@
 #      player.arrange()
 #      print(f'{player.name}: ', end='')
 #  print(player.cards)
-
+#  ''' 工薪发放系统 '''
 
 #  from abc import ABCMeta, abstractmethod
 #
 #
 #  class Employee(metaclass=ABCMeta):
-#
+#      '''员工（抽象类）'''
 #      def __init__(self, name):
 #          self.name = name
 #
 #      @abstractmethod
 #      def get_salary(self):
-#
+#          '''结算月薪（抽象方法）'''
 #          pass
 #
 #
 #  class Manager(Employee):
-#
+#      '''部门经理'''
 #      def get_salary(self):
 #          return 15000.0
 #
 #
 #  class Programmer(Employee):
-#
+#      '''程序员'''
 #      def __init__(self, name, working_hour=0):
-#          super().__init__(name)
 #          self.working_hour = working_hour
+#          super().__init__(name)
 #
 #      def get_salary(self):
-#          return 200*self.working_hour
+#          return 200.0 * self.working_hour
 #
 #
 #  class Salesman(Employee):
-#
-#      def __init__(self, name, sales=0):
-#          super().__init__(name)
+#      '''销售员'''
+#      def __init__(self, name, sales=0.0):
 #          self.sales = sales
+#          super().__init__(name)
 #
 #      def get_salary(self):
-#          return 1800 + self.sales * 0.05
+#          return 1800.0 + self.sales * 0.05
 #
 #
-#  emps = [Manager('刘备'), Programmer('诸葛亮'), Manager('曹操'),
-#          Programmer('荀彧'), Salesman('吕布'), Programmer('张辽')]
+#  class EmployeeFactory:
+#      '''创建员工的工厂（工厂模式 - 通过工厂实现对象使用者和对象之间的解耦合'''
+#      @staticmethod
+#      def create(emp_type, *args, **kwargs):
+#          '''创建员工'''
+#          all_epm_types = {'M': Manager, 'P': Programmer, 'S': Salesman}
+#          cls = all_epm_types[emp_type.upper()]
+#          return cls(*args, **kwargs) if cls else None
 #
-#  for emp in emps:
-#      if isinstance(emp, Programmer):
-#          emp.working_hour = int(input(f'请输入{emp.name}本月工作时间: '))
-#      elif isinstance(emp, Salesman):
-#          emp.sales = int(input(f'请输入{emp.name}本月销售额: '))
-    #  print(f'{emp.name}本月工资为：￥{emp.get_salary():.2f}元')
-
-from collections import Counter
-
-words = [
-    'look', 'into', 'my', 'eyes', 'look', 'into', 'my', 'eyes',
-    'the', 'eyes', 'the', 'eyes', 'the', 'eyes', 'not', 'around',
-    'the', 'eyes', "don't", 'look', 'around', 'the', 'eyes',
-    'look', 'into', 'my', 'eyes', "you're", 'under'
-]
-counter = Counter(words)
-# 打印words列表中出现频率最高的3个元素及其出现次数
-for elem, count in counter.most_common(3):
-    print(elem, count)
-
+#
+#  def main():
+#      '''主函数'''
+#      emps = [
+#          EmployeeFactory.create('M', '曹操'),
+#          EmployeeFactory.create('P', '荀彧', 120),
+#          EmployeeFactory.create('P', '郭嘉', 85),
+#          EmployeeFactory.create('S', '典韦', 123000),
+#      ]
+#      for emp in emps:
+#          print(f'{emp.name}: {emp.get_salary():.2f}元')
+#
+#
+#  if __name__ == '__main__':
+#      main()
+#  from collections import Counter
+#
+#  words = [
+#      'look', 'into', 'my', 'eyes', 'look', 'into', 'my', 'eyes',
+#      'the', 'eyes', 'the', 'eyes', 'the', 'eyes', 'not', 'around',
+#      'the', 'eyes', "don't", 'look', 'around', 'the', 'eyes',
+#      'look', 'into', 'my', 'eyes', "you're", 'under'
+#  ]
+#  counter = Counter(words)
+#  # 打印words列表中出现频率最高的3个元素及其出现次数
+#  for elem, count in counter.most_common(3):
+#      print(elem, count)
+#
