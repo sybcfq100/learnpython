@@ -110,5 +110,51 @@
 #
 #  def area_hexagon(r):
 #      return area(r, 3 * sqrt(3) / 2)
+from operator import mul
+'''Generalization.'''
 
-def sum_
+
+def identity(k):
+    return k
+
+
+def cube(k):
+    return pow(k, 3)
+
+
+def pi_term(k):
+    return 8 / mul(4 * k - 3, 4 * k - 1)
+
+
+def summation(n, term):
+    '''sum the first N terms of a sequence.'''
+
+    total, k = 0, 1
+    while k <= n:
+        total, k = total + term(k), k + 1
+    return total
+
+
+def sum_naturals(n):
+    '''sum the first N natural numbers.
+    >>> sum_naturals(5)
+    15
+    '''
+    return summation(n, identity)
+
+
+def sum_pi(n):
+    return summation(n, pi_term)
+
+
+def sum_cubes(n):
+    '''sum the first N cube numbers.
+    >>> sum_cubes(5)
+    225
+    '''
+    return summation(n, cube)
+
+
+print(sum_naturals(5))
+print(sum_cubes(5))
+print(sum_pi(100000))
