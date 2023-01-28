@@ -23,31 +23,41 @@ def search(f):
         x += 1
 
 
-def is_three(x):
-    return x == 3
-
-
-#  print(search(is_three))
-
-
+#
+#  def is_three(x):
+#      return x == 3
+#
+#
+#  #  print(search(is_three))
+#
+#
 def square(x):
     return x * x
 
 
-def positive(x):
-    return max(0, square(x) - 100)
+#
+#  def positive(x):
+#      return max(0, square(x) - 100)
+#
+#
+#  #  print(search(positive))
+#
+#
+#  def inverse(f):
+#      '''Return g(y) such that g(f(x)) --> x.'''
+#      return lambda y: search(lambda x: f(x) == y)
+#
+def sqrt(y):
+    def is_sqrt_of_y(x):
+        return square(x) == y
+
+    return search(is_sqrt_of_y)
 
 
-#  print(search(positive))
-
-
-def inverse(f):
-    '''Return g(y) such that g(f(x)) --> x.'''
-    return lambda y: search(lambda x: f(x) == y)
-
-
-sqrt = inverse(square)
-sqrt(256)
+print(sqrt(36))
+#
+#  sqrt = inverse(square)
+#  sqrt(256)
 #  def end(n, d):
 #      while n > 0:
 #          last, n = n % 10, n // 10
