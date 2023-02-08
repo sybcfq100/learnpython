@@ -79,14 +79,15 @@ def repeat(k):
     5
     1
     '''
-    
     return detector(lambda j: False)(k)
 
-def detector(f):
+def detector(have_seen):
     def g(i):
-        if f(i):
+        if have_seen(i):
             print(i)
-        return detector(lambda j: j == i)
+        new_have_seen = lambda j: j == i or have_seen(j)
+        return detector(new_have_seen)
+        # return detector(lambda j: j == i or have_seen(j))
     return g
 
 repeat(1)(7)(7)
