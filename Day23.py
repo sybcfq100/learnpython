@@ -71,23 +71,25 @@
 
 # print(sum_squares_up_to(5))
 
-def repeat(k):
-    '''
-    >>> f = repeat(1)(7)(7)(3)(4)(2)(5)(1)(6)(5)(1)
-    7
-    1
-    5
-    1
-    '''
-    return detector(lambda j: False)(k)
+#  def repeat(k):
+#      '''
+#      >>> f = repeat(1)(7)(7)(3)(4)(2)(5)(1)(6)(5)(1)
+#      7
+#      1
+#      5
+#      1
+#      '''
+#      return detector(lambda j: False)(k)
+#
+#  def detector(have_seen):
+#      def g(k):
+#          if have_seen(k):
+#              print(k)
+#          new_have_seen = lambda j: j == k or have_seen(j)
+#          return detector(new_have_seen)
+#          # return detector(lambda j: j == k or have_seen(j))
+#      return g
+#
+#  repeat(1)(7)(7)(3)(4)(2)(5)(1)(6)(5)(1)
 
-def detector(have_seen):
-    def g(i):
-        if have_seen(i):
-            print(i)
-        new_have_seen = lambda j: j == i or have_seen(j)
-        return detector(new_have_seen)
-        # return detector(lambda j: j == i or have_seen(j))
-    return g
 
-repeat(1)(7)(7)
