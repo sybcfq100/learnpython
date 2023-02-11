@@ -31,7 +31,19 @@
 #
 #  grow = lambda n: f_then_g(grow, print, n//10)
 #  shrink = lambda n: f_then_g(print, shrink, n//10)
-#
+''' it's the function to replace f_then_g and grow and shrink'''
+# def grow(n):
+#     if n // 10 != 0:
+#         grow(n // 10)
+#         print(n//10)
+
+
+# def shrink(n):
+#     if n // 10!= 0:
+#         print(n//10)
+#         shrink(n // 10)
+
+
 #  print(inverse_cascade(1234))
 
 #  def fib(n):
@@ -53,14 +65,24 @@ Q(n,m)=Q(n,m-1)+Q(n-m,m),
 分为包涵3的分类：剩下5-3=2，可将2分划，且分划最大值不超过3
 
 '''
+def trace(f):
+    def g(n, m):
+        print(f'{f.__name__}({str(n)}, {str(m)}) was called')
+        result  =f(n ,m)
+        print(f'{f.__name__}({str(n)}, {str(m)}) => {str(result)}')
+
+        return result
+    return g
+
+@trace
 def count_partitions(n, m):
     if n == 0:
         return 1
     elif n < 0 or m == 0:
         return 0
     else:
-        with_m = count_partitions(n-m, m)
+        with_m = count_partitions(n-m, min(m, n-m))
         without_m = count_partitions(n, m-1)
         return with_m + without_m
 
-print(count_partitions(6, 2))
+print(count_partitions(6, 4))
