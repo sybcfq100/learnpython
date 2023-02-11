@@ -44,17 +44,23 @@
     #
 #  print(fib(7))
 
+'''
+Q(n,m)=Q(n,m-1)+Q(n-m,m),
+等式右边第一部分Q(n,m-1)表示被加数不包含m的分划的数目，
+第二部分表示被加数中包含（注意不是小于）m的分划的数目，
+因为如果确定了一个分划的被加数中包含m,则剩下的部分就是对n-m进行不超过m的划分。
+以5，3为例：
+分为包涵3的分类：剩下5-3=2，可将2分划，且分划最大值不超过3
 
+'''
 def count_partitions(n, m):
     if n == 0:
         return 1
-    elif n < 0:
-        return 0
-    elif m == 0:
+    elif n < 0 or m == 0:
         return 0
     else:
         with_m = count_partitions(n-m, m)
         without_m = count_partitions(n, m-1)
         return with_m + without_m
 
-print(count_partitions(5, 3))
+print(count_partitions(6, 2))
