@@ -8,5 +8,10 @@ def make_withdraw(balance):
         return balance
     return withdraw
 
-#  withdraw = (make_withdraw(100))
-print(make_withdraw(100)(10))
+withdraw = (make_withdraw(100))
+print(withdraw(10))
+print(withdraw(35))
+print(withdraw(26))
+"""
+what is the meaning or function of nonlocal
+"""
