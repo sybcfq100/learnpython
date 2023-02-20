@@ -1,22 +1,22 @@
-def double(x):
-    print('**', x, '=>', 2*x, '**')
-    return 2*x
+# def double(x):
+#     print('**', x, '=>', 2*x, '**')
+#     return 2*x
 
 
-m = map(double, range(3, 7))
-f = lambda y: y >= 10
-t = filter(f, m)
-print(next(t))
+# m = map(double, range(3, 7))
+# f = lambda y: y >= 10
+# t = filter(f, m)
+# print(next(t))
 
-print(list(filter(f, map(double, range(3, 7)))))
+# print(list(filter(f, map(double, range(3, 7)))))
 
-def evens(start, end):
-    even = start + start % 2
-    while even < end:
-        yield even
-        even += 2
+# def evens(start, end):
+#     even = start + start % 2
+#     while even < end:
+#         yield even
+#         even += 2
 
-print(list(evens(1, 10)))
+# print(list(evens(1, 10)))
 
 def countdown(k):
     if k > 0:
