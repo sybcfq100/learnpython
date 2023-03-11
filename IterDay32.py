@@ -67,7 +67,13 @@ def mul_interval(x, y):
     p4 = upper_bound(x) * upper_bound(y)
     return interval(min(p1, p2, p3, p4), max(p1, p2, p3, p4))
 
+<<<<<<< HEAD
 #  a= interval(-1, 1)
 #  b =interval(-2, 0)
 #  print(mul_interval(a, b))
 print(mul_interval(interval(-1, 1.5), interval(-2, 0)))
+=======
+if __name__=="__main__":
+    print(fib(5))
+    print(fib(10))
+>>>>>>> 0e18016088a330dde3669e9b118d9c805de546d2
