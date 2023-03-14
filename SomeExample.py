@@ -1,9 +1,9 @@
-#  def min_abs_indices(s):
-#      min_abs = min(map(abs, s))
-#      #  return [i for i in range(len(s)) if abs(s[i]) == min_abs]
-#      f = lambda i: abs(s[i]) == min_abs
-#      return list(filter(f, range(len(s))))
-#  print(min_abs_indices([-4, -3, -2, 3, 2, 4]))
+def min_abs_indices(s):
+    min_abs = min(map(abs, s))
+    #  return [i for i in range(len(s)) if abs(s[i]) == min_abs]
+    f = lambda i: abs(s[i]) == min_abs
+    return list(filter(f, range(len(s))))
+print(min_abs_indices([-4, -3, -2, 3, 2, 4]))
 #
 #  def largest_adj_sum(s):
 #      return max(s[i] + s[i+1] for i in range(len(s) - 1))
