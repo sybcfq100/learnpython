@@ -51,29 +51,37 @@
 #      print(fib(5))
     #  print(fib(10))
 
-def interval(a, b):
-    return [a, b]
+# def interval(a, b):
+#     return [a, b]
 
-def lower_bound(x):
-    return x[0]
+# def lower_bound(x):
+#     return x[0]
 
-def upper_bound(x):
-    return x[1]
+# def upper_bound(x):
+#     return x[1]
 
-def mul_interval(x, y):
-    p1 = lower_bound(x) * lower_bound(y)
-    p2 = lower_bound(x) * upper_bound(y)
-    p3 = upper_bound(x) * lower_bound(y)
-    p4 = upper_bound(x) * upper_bound(y)
-    return interval(min(p1, p2, p3, p4), max(p1, p2, p3, p4))
+# def mul_interval(x, y):
+#     p1 = lower_bound(x) * lower_bound(y)
+#     p2 = lower_bound(x) * upper_bound(y)
+#     p3 = upper_bound(x) * lower_bound(y)
+#     p4 = upper_bound(x) * upper_bound(y)
+#     return interval(min(p1, p2, p3, p4), max(p1, p2, p3, p4))
 
-<<<<<<< HEAD
-#  a= interval(-1, 1)
-#  b =interval(-2, 0)
-#  print(mul_interval(a, b))
-print(mul_interval(interval(-1, 1.5), interval(-2, 0)))
-=======
-if __name__=="__main__":
-    print(fib(5))
-    print(fib(10))
->>>>>>> 0e18016088a330dde3669e9b118d9c805de546d2
+# if __name__=="__main__":
+#     print(fib(5))
+#     print(fib(10))
+
+
+# it the samething for function and itertor
+counts = [1,2,3]
+for item in counts:
+    print(item)
+
+items = iter(counts)
+
+try:
+    while True:
+        item = next(items)
+        print(item)
+except StopIteration:
+    pass
