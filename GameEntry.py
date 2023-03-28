@@ -42,14 +42,31 @@ class Scoreboard:
                 self._board[j] = self._board[j-1]   # shift entry from j-1 to j
                 j -= 1  # add decrement j
             self._board[j] = entry # when done, add new entry 
-        return list(self._board)
+        # return self._board
 
-a = GameEntry('Mike', 1105)
-c = GameEntry('Jill', 2000)
-# print(a.get_name())
-# print(a.get_score())
-aa = Scoreboard().add(a)
-cc = Scoreboard().add(c)
-print(aa[0].get_name())
-print(cc[0].get_score())
-print(aa.__getitem__(0))
+def main():
+
+    mike = GameEntry('Mike', 1105)
+    bob = GameEntry('Bob', 750)
+    paul = GameEntry('Paul', 720)
+    anna = GameEntry('Anna', 660)
+    rose = GameEntry('Rose', 590)
+    jack = GameEntry('Jack', 510)
+
+    board = Scoreboard()
+
+    board.add(mike)
+    board.add(bob)
+    board.add(paul)
+    board.add(anna)
+    board.add(rose)
+    board.add(jack)
+    
+    jill = GameEntry('Jill', 740)
+    board.add(jill)
+
+    print(board)
+
+
+if __name__ == '__main__':
+    main()
