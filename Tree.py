@@ -50,6 +50,13 @@ class Tree:
         else:
             return 1 + self.depth(self.parent(p))
 
+    def height(self, p = None):
+        """return the height of the subtree rooted at Position p
+        If p is None, return the height of the entire tree."""
+        if p is None:
+            p = self.root()
+        return self.height2(p)
+
     def _height1(self):
         """ return the height of the tree """
         return max(self.depth(p) for p in self.positions() if self.is_leaf(p))
