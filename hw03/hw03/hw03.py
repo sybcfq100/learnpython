@@ -69,31 +69,49 @@ def pingpong(n):
     ...       ['Assign', 'AnnAssign', 'AugAssign', 'NamedExpr'])
     True
     """
-    def helper(result, i, step):
-        if i == n:
-            return result
-        elif i % 8 == 0 or num_eights(i) > 0:
-            return helper(result - step, i + 1, -step)
+#     def helper(result, i, step):
+#         if i == n:
+#             return result
+#         elif i % 8 == 0 or num_eights(i) > 0:
+#             return helper(result - step, i + 1, -step)
+#         else:
+#             return helper(result + step, i + 1, step)
+
+#     return helper(1, 1, 1)
+
+
+# # Alternate solution 1
+# def pingpong_next(x, i, step):
+#     if i == n:
+#         return x
+#     return pingpong_next(x + step, i + 1, next_dir(step, i + 1))
+
+
+# def next_dir(step, i):
+#     if i % 8 == 0 or num_eights(i) > 0:
+#         return -step
+#     return step
+
+    i = 1
+    x = 1
+    is_up = True
+    while i < n:
+        is_up = next_dir(is_up, i)
+        if is_up:
+            x += 1
         else:
-            return helper(result + step, i + 1, step)
+            x -= 1
+        i += 1
+    return x
 
-    return helper(1, 1, 1)
-
-
-# Alternate solution 1
-def pingpong_next(x, i, step):
-    if i == n:
-        return x
-    return pingpong_next(x + step, i + 1, next_dir(step, i + 1))
-
-
-def next_dir(step, i):
+def next_dir(is_up, i):
     if i % 8 == 0 or num_eights(i) > 0:
-        return -step
-    return step
+        return not is_up
+    return is_up
 
 
-print(pingpong(10))
+print(pingpong(100))
+
 #  def next_larger_coin(coin):
 #      """Returns the next larger coin in order.
 #      >>> next_larger_coin(1)
