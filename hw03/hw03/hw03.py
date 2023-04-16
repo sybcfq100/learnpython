@@ -183,19 +183,31 @@ def count_coins(change):
     #     return without_coin + with_coin
 
     # return constrained_count(change, 1) 
-
     def constrained_count(change, largest_coin):
+        """_summary_
+
+        Parameters
+        ----------
+        change : _type_
+            _description_
+        largest_coin : _type_
+            _description_
+
+        Returns
+        -------
+        _type_
+            _description_
+        """        
         if change == 0:
             return 1
         if change < 0:
             return 0
         if largest_coin is None: # or None can be used as a flag value.  It is not a valid value.  None is a valid value
             return 0
+
         without_coin = constrained_count(change, next_smaller_coin(largest_coin))
         with_coin = constrained_count(change-largest_coin, largest_coin)
 
         return with_coin + without_coin
     return constrained_count(change, 25)
-
-
 print(count_coins(10))
