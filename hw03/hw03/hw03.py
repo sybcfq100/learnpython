@@ -198,4 +198,4 @@ def count_coins(change):
     return constrained_count(change, 25)
 
 
-print(count_coins(100))
+print(count_coins(10))
