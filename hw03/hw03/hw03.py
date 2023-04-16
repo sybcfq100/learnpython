@@ -1,6 +1,5 @@
 #  HW_SOURCE_FILE = __file__
 
-
 # def num_eights(n):
 #  """Returns the number of times 8 appears as a digit of n.
 #
@@ -31,10 +30,8 @@
 #     n = n // 10
 # return count
 
-
 #
 #  print(num_eights(123456))
-
 
 #  def pingpong(n):
 #      """Return the nth element of the ping-pong sequence.
@@ -90,7 +87,6 @@
 #         return x
 #     return pingpong_next(x + step, i + 1, next_dir(step, i + 1))
 
-
 # def next_dir(step, i):
 #     if i % 8 == 0 or num_eights(i) > 0:
 #         return -step
@@ -113,7 +109,6 @@
 #     if i % 8 == 0 or '8' in str(i):
 #         return not is_up
 #     return is_up
-
 
 # print(pingpong(100))
 
@@ -154,22 +149,22 @@ def next_smaller_coin(coin):
 
 
 def count_coins(change):
-#     """Return the number of ways to make change using coins of value of 1, 5, 10, 25.
-#     >>> count_coins(15)
-#     6
-#     >>> count_coins(10)
-#     4
-#     >>> count_coins(20)
-#     9
-#     >>> count_coins(100) # How many ways to make change for a dollar?
-#     242
-#     >>> count_coins(200)
-#     1463
-#     >>> from construct_check import check
-#     >>> # ban iteration
-#     >>> check(HW_SOURCE_FILE, 'count_coins', ['While', 'For'])
-#     True
-#     """
+    #     """Return the number of ways to make change using coins of value of 1, 5, 10, 25.
+    #     >>> count_coins(15)
+    #     6
+    #     >>> count_coins(10)
+    #     4
+    #     >>> count_coins(20)
+    #     9
+    #     >>> count_coins(100) # How many ways to make change for a dollar?
+    #     242
+    #     >>> count_coins(200)
+    #     1463
+    #     >>> from construct_check import check
+    #     >>> # ban iteration
+    #     >>> check(HW_SOURCE_FILE, 'count_coins', ['While', 'For'])
+    #     True
+    #     """
 
     # def constrained_count(change, smallest_coin):
     #     if change == 0:
@@ -182,7 +177,7 @@ def count_coins(change):
     #     without_coin = constrained_count(change, next_larger_coin(smallest_coin))
     #     return without_coin + with_coin
 
-    # return constrained_count(change, 1) 
+    # return constrained_count(change, 1)
     def constrained_count(change, largest_coin):
         """_summary_
 
@@ -197,17 +192,21 @@ def count_coins(change):
         -------
         _type_
             _description_
-        """        
+        """
         if change == 0:
             return 1
         if change < 0:
             return 0
-        if largest_coin is None: # or None can be used as a flag value.  It is not a valid value.  None is a valid value
+        if largest_coin is None:  # or None can be used as a flag value.  It is not a valid value.  None is a valid value
             return 0
 
-        without_coin = constrained_count(change, next_smaller_coin(largest_coin))
-        with_coin = constrained_count(change-largest_coin, largest_coin)
+        without_coin = constrained_count(change,
+                                         next_smaller_coin(largest_coin))
+        with_coin = constrained_count(change - largest_coin, largest_coin)
 
         return with_coin + without_coin
+
     return constrained_count(change, 25)
+
+
 print(count_coins(10))
