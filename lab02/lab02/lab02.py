@@ -1,6 +1,7 @@
 add_one = lambda x: x + 1
 square = lambda x: x**2
 
+
 def composer(f, g):
     """Return the composition function which given x, computes f(g(x)).
 
@@ -34,14 +35,16 @@ def composite_identity(f, g):
     False
     """
     "*** YOUR CODE HERE ***"
+
     def fool(x):
-        return composer(f, g) (x) == composer(g, f)(x)
+        return composer(f, g)(x) == composer(g, f)(x)
+
     return fool
 
-b1 = composite_identity(square, add_one) # (x + 1)^2 == x^2 + 1.  This is a function.
 
+b1 = composite_identity(square,
+                        add_one)  # (x + 1)^2 == x^2 + 1.  This is a function.
 print(b1(0))
-
 
 # def count_cond(condition):
 #     """Returns a function with one parameter N that counts all the numbers from
@@ -72,7 +75,6 @@ print(b1(0))
 #     """
 #     "*** YOUR CODE HERE ***"
 
-
 # def multiple(a, b):
 #     """Return the smallest number n that is a multiple of both a and b.
 
@@ -82,7 +84,6 @@ print(b1(0))
 #     42
 #     """
 #     "*** YOUR CODE HERE ***"
-
 
 # def cycle(f1, f2, f3):
 #     """Returns a function that is itself a higher-order function.
