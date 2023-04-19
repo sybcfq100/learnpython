@@ -168,11 +168,20 @@ def cycle(f1, f2, f3):
             return x
         return ret
     return ret_fn
-                    
+# Alternative soluation
+    # def ret_fn(n):
+    #     def ret(x):
+    #         if n == 0:
+    #             return x
+    #         return cycle(f2, f3, f1)(n-1)(f1(x))
+    #     return ret
+    # return ret_fn                    
+
 my_cycle = cycle(add1, times2, add3)
 
 identity = my_cycle(0)     
 print(identity(5))
+
 
 """
     Returns a function that is itself a higher-order function.
