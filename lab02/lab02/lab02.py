@@ -146,8 +146,35 @@
 #
 
 
+def add1(x):
+    return x + 1
+def times2(x):
+    return x * 2
+def add3(x):
+    return x + 3
+
 def cycle(f1, f2, f3):
-    """ 
+    def ret_fn(n):
+        def ret(x):
+            i = 0
+            while i < n:
+                if i % 3 == 0:
+                    x = f1(x)
+                elif i % 3 == 1:
+                    x = f2(x)
+                else:
+                    x = f3(x)
+                i += 1
+            return x
+        return ret
+    return ret_fn
+                    
+my_cycle = cycle(add1, times2, add3)
+
+identity = my_cycle(0)     
+print(identity(5))
+
+"""
     Returns a function that is itself a higher-order function.
 
 >>> def add1(x):
