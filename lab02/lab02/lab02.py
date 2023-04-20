@@ -148,13 +148,20 @@
 
 def add1(x):
     return x + 1
+
+
 def times2(x):
     return x * 2
+
+
 def add3(x):
     return x + 3
 
+
 def cycle(f1, f2, f3):
+
     def ret_fn(n):
+
         def ret(x):
             i = 0
             while i < n:
@@ -166,23 +173,25 @@ def cycle(f1, f2, f3):
                     x = f3(x)
                 i += 1
             return x
+
         return ret
+
     return ret_fn
+
+
 # Alternative soluation
-    # def ret_fn(n):
-    #     def ret(x):
-    #         if n == 0:
-    #             return x
-    #         return cycle(f2, f3, f1)(n-1)(f1(x))
-    #     return ret
-    # return ret_fn                    
+# def ret_fn(n):
+#     def ret(x):
+#         if n == 0:
+#             return x
+#         return cycle(f2, f3, f1)(n-1)(f1(x))
+#     return ret
+# return ret_fn
 
 my_cycle = cycle(add1, times2, add3)
 
-identity = my_cycle(0)     
+identity = my_cycle(0)
 print(identity(5))
-
-
 """
     Returns a function that is itself a higher-order function.
 
@@ -209,6 +218,4 @@ print(identity(5))
 >>> do_two_cycles(1)
 19
 """
-
-
 "*** YOUR CODE HERE ***"
