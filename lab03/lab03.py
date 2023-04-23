@@ -9,27 +9,39 @@ triple = lambda x: 3 * x
 increment = lambda x: x + 1
 
 
-def ordered_digits(x):
-    """Return True if the (base 10) digits of X>0 are in non-decreasing
-    order, and False otherwise.
-
-    >>> ordered_digits(5)
-    True
-    >>> ordered_digits(11)
-    True
-    >>> ordered_digits(127)
-    True
-    >>> ordered_digits(1357)
-    True
-    >>> ordered_digits(21)
-    False
-    >>> result = ordered_digits(1375) # Return, don't print
-    >>> result
-    False
-
-    """
-    "*** YOUR CODE HERE ***"
-
+#  def ordered_digits(x):
+    #  """Return True if the (base 10) digits of X>0 are in non-decreasing
+    #  order, and False otherwise.
+    #
+    #  >>> ordered_digits(5)
+    #  True
+    #  >>> ordered_digits(11)
+    #  True
+    #  >>> ordered_digits(127)
+    #  True
+    #  >>> ordered_digits(1357)
+    #  True
+    #  >>> ordered_digits(21)
+    #  False
+    #  >>> result = ordered_digits(1375) # Return, don't print
+    #  >>> result
+    #  False
+    #
+    #  """
+    #  "*** YOUR CODE HERE ***"
+    #  for _ in range(len(str(x))):
+    #      rest, last = x // 10, x % 10
+    #      if rest % 10 > last:
+    #          return False
+    #      return True
+    # alternative solution
+#      last = x % 10
+    #  x = x // 10
+    #  while x > 0 and last >= x % 10:
+    #      last = x % 10
+    #      x = x // 10
+    #  return x == 0
+#  print(ordered_digits(13579))
 
 def get_k_run_starter(n, k):
     """Returns the 0th digit of the kth increasing run within n.
@@ -52,13 +64,15 @@ def get_k_run_starter(n, k):
     """
     i = 0
     final = None
-    while ____________________________:
-        while ____________________________:
-            ____________________________
-        final = ____________________________
-        i = ____________________________
-        n = ____________________________
+    while i <= k:
+        while n > 10 and (n % 10) > (n // 10) % 10:
+            n = n // 10
+        final = n % 10
+        i = i + 1
+        n = n // 10
     return final
+
+print(get_k_run_starter(123444345, 1))
 
 
 def make_repeater(func, n):
@@ -77,6 +91,7 @@ def make_repeater(func, n):
     5
     """
     "*** YOUR CODE HERE ***"
+
 
 
 def composer(func1, func2):
