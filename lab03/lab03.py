@@ -56,8 +56,6 @@ increment = lambda x: x + 1
 #     1
 #     >>> get_k_run_starter(1234234534564567, 0)
 #     4
-#     >>> get_k_run_starter(1234234534564567, 1)
-#     3
 #     >>> get_k_run_starter(1234234534564567, 2)
 #     2
 #     """
@@ -75,33 +73,45 @@ increment = lambda x: x + 1
 
 
 def make_repeater(func, n):
-    """Return the function that computes the nth application of func.
+	"""Return the function that computes the nth application of func.
 
-    >>> add_three = make_repeater(increment, 3)
-    >>> add_three(5)
-    8
-    >>> make_repeater(triple, 5)(1) # 3 * 3 * 3 * 3 * 3 * 1
-    243
-    >>> make_repeater(square, 2)(5) # square(square(5))
-    625
-    >>> make_repeater(square, 4)(5) # square(square(square(square(5))))
-    152587890625
-    >>> make_repeater(square, 0)(5) # Yes, it makes sense to apply the function zero times!
-    5
-    """
-    "*** YOUR CODE HERE ***"
-    def inner(x):
-        if n == 0:
-            return x
-        while n > 0:
-            x = func(x)
-            n = n -1
-        return x
+	>>> add_three = make_repeater(increment, 3)
+	>>> add_three(5)
+	8
+	>>> make_repeater(triple, 5)(1) # 3 * 3 * 3 * 3 * 3 * 1
+	243
+	>>> make_repeater(square, 2)(5) # square(square(5))
+	625
+	>>> make_repeater(square, 4)(5) # square(square(square(square(5))))
+	152587890625
+	>>> make_repeater(square, 0)(5) # Yes, it makes sense to apply the function zero times!
+	5
+	"""
+	"*** YOUR CODE HERE ***"
 
-    return inner
+	# g = identity
+	# while n > 0:
+	#     g = composer(func, g)
+	#     n = n - 1
+	# return g
+	# Alternative solutions
+	def inner_func(x):
+		k = 0
+		while k < n:
+			x, k = func(x), k + 1
+		return x
+
+	return inner_func
+
+
+def composer(func1, func2):
+	def f(x):
+		return func1(func2(x))
+
+	return f
+
 
 print(make_repeater(triple, 5)(1))
-
 
 # def composer(func1, func2):
 #     """Return a function f, such that f(x) = func1(func2(x))."""
@@ -110,7 +120,6 @@ print(make_repeater(triple, 5)(1))
 #         return func1(func2(x))
 
 #     return f
-
 
 # def apply_twice(func):
 #     """ Return a function that applies func twice.
@@ -121,7 +130,6 @@ print(make_repeater(triple, 5)(1))
 #     16
 #     """
 #     "*** YOUR CODE HERE ***"
-
 
 # def div_by_primes_under(n):
 #     """
@@ -141,7 +149,6 @@ print(make_repeater(triple, 5)(1))
 #             checker = ____________________________
 #         i = ____________________________
 #     return ____________________________
-
 
 # def div_by_primes_under_no_lambda(n):
 #     """
