@@ -1,12 +1,16 @@
 from operator import add, mul
 
-square = lambda x: x * x
 
-identity = lambda x: x
+def square(x): return x * x
 
-triple = lambda x: 3 * x
 
-increment = lambda x: x + 1
+def identity(x): return x
+
+
+def triple(x): return 3 * x
+
+
+def increment(x): return x + 1
 
 #  def ordered_digits(x):
 #  """Return True if the (base 10) digits of X>0 are in non-decreasing
@@ -72,46 +76,45 @@ increment = lambda x: x + 1
 # print(get_k_run_starter(123444345, 1))
 
 
-def make_repeater(func, n):
-	"""Return the function that computes the nth application of func.
-
-	>>> add_three = make_repeater(increment, 3)
-	>>> add_three(5)
-	8
-	>>> make_repeater(triple, 5)(1) # 3 * 3 * 3 * 3 * 3 * 1
-	243
-	>>> make_repeater(square, 2)(5) # square(square(5))
-	625
-	>>> make_repeater(square, 4)(5) # square(square(square(square(5))))
-	152587890625
-	>>> make_repeater(square, 0)(5) # Yes, it makes sense to apply the function zero times!
-	5
-	"""
-	"*** YOUR CODE HERE ***"
-
-	# g = identity
-	# while n > 0:
-	#     g = composer(func, g)
-	#     n = n - 1
-	# return g
-	# Alternative solutions
-	def inner_func(x):
-		k = 0
-		while k < n:
-			x, k = func(x), k + 1
-		return x
-
-	return inner_func
-
-
-def composer(func1, func2):
-	def f(x):
-		return func1(func2(x))
-
-	return f
-
-
-print(make_repeater(triple, 5)(1))
+#  def make_repeater(func, n):
+#      """Return the function that computes the nth application of func.
+#
+#      >>> add_three = make_repeater(increment, 3)
+#      >>> add_three(5)
+#      8
+#      >>> make_repeater(triple, 5)(1) # 3 * 3 * 3 * 3 * 3 * 1
+#      243
+#      >>> make_repeater(square, 2)(5) # square(square(5))
+#      625
+#      >>> make_repeater(square, 4)(5) # square(square(square(square(5))))
+#      152587890625
+#      >>> make_repeater(square, 0)(5) # Yes, it makes sense to apply the function zero times!
+#      5
+#      """
+#      "*** YOUR CODE HERE ***"
+#
+#      # g = identity
+#      # while n > 0:
+#      #     g = composer(func, g)
+#      #     n = n - 1
+#      # return g
+#      # Alternative solutions
+#      def inner_func(x):
+#          k = 0
+#          while k < n:
+#              x, k = func(x), k + 1
+#          return x
+#
+#      return inner_func
+#
+#
+#  def composer(func1, func2):
+#      def f(x):
+#          return func1(func2(x))
+#      return f
+#
+#
+#  print(make_repeater(triple, 5)(1))
 
 # def composer(func1, func2):
 #     """Return a function f, such that f(x) = func1(func2(x))."""
@@ -121,15 +124,21 @@ print(make_repeater(triple, 5)(1))
 
 #     return f
 
-# def apply_twice(func):
-#     """ Return a function that applies func twice.
+def apply_twice(func):
+   """ Return a function that applies func twice.
 
-#     func -- a function that takes one argument
+   func -- a function that takes one argument
 
-#     >>> apply_twice(square)(2)
-#     16
-#     """
-#     "*** YOUR CODE HERE ***"
+   >>> apply_twice(square)(2)
+   16
+   """
+   "*** YOUR CODE HERE ***"
+   def f(x):
+       return func(x)**2
+   return f
+
+
+print(apply_twice(square)(2))
 
 # def div_by_primes_under(n):
 #     """
