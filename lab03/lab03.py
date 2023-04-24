@@ -1,16 +1,21 @@
-from operator import add, mul
+# from operator import add, mul
 
 
-def square(x): return x * x
+# def square(x):
+#     return x * x
 
 
-def identity(x): return x
+# def identity(x):
+#     return x
 
 
-def triple(x): return 3 * x
+# def triple(x):
+#     return 3 * x
 
 
-def increment(x): return x + 1
+# def increment(x):
+#     return x + 1
+
 
 #  def ordered_digits(x):
 #  """Return True if the (base 10) digits of X>0 are in non-decreasing
@@ -75,7 +80,6 @@ def increment(x): return x + 1
 
 # print(get_k_run_starter(123444345, 1))
 
-
 #  def make_repeater(func, n):
 #      """Return the function that computes the nth application of func.
 #
@@ -125,68 +129,73 @@ def increment(x): return x + 1
 #     return f
 
 #  def apply_twice(func):
-   #  """ Return a function that applies func twice.
-   #
-   #  func -- a function that takes one argument
-   #
-   #  >>> apply_twice(square)(2)
-   #  16
-   #  """
-   #  "*** YOUR CODE HERE ***"
-   #  def f(x):
-   #      return func(x)**2
-   #  return f
-   #
-   #
+#  """ Return a function that applies func twice.
+#
+#  func -- a function that takes one argument
+#
+#  >>> apply_twice(square)(2)
+#  16
+#  """
+#  "*** YOUR CODE HERE ***"
+#  def f(x):
+#      return func(x)**2
+#  return f
+#
+#
 #  print(apply_twice(square)(2))
 
-def div_by_primes_under(n):
-   """
-   >>> div_by_primes_under(10)(11)
-   False
-   >>> div_by_primes_under(10)(121)
-   False
-   >>> div_by_primes_under(10)(12)
-   True
-   >>> div_by_primes_under(5)(1)
-   False
-   """
-   checker = lambda x: False
-   i = 2
-   while i < n:
-       if not checker(i):
-           checker = lambda x: True if x % i == 0 else False
-       i = i + 1
-   return checker
+# def div_by_primes_under(n):
+#    """
+#    >>> div_by_primes_under(10)(11)
+#    False
+#    >>> div_by_primes_under(10)(121)
+#    False
+#    >>> div_by_primes_under(10)(12)
+#    True
+#    >>> div_by_primes_under(5)(1)
+#    False
+#    """
+#    checker = lambda x: False
+#    i = 2
+#    while i <= n:
+#       if not checker(i):
+#         #    checker = lambda x: True if x % i == 0 else False
+#           checker = (lambda f, i: lambda x: x % i == 0 or f(x))(checker, i) # 这是个什么玩意？
+#       i += 1
+#    return checker
 
-print(div_by_primes_under(10)(12))
+# print(div_by_primes_under(10)(121))
 
-# def div_by_primes_under_no_lambda(n):
-#     """
-#     >>> div_by_primes_under_no_lambda(10)(11)
-#     False
-#     >>> div_by_primes_under_no_lambda(10)(121)
-#     False
-#     >>> div_by_primes_under_no_lambda(10)(12)
-#     True
-#     >>> div_by_primes_under_no_lambda(5)(1)
-#     False
-#     """
 
-#     def checker(x):
-#         return False
+def div_by_primes_under_no_lambda(n):
+    """
+    >>> div_by_primes_under_no_lambda(10)(11)
+    False
+    >>> div_by_primes_under_no_lambda(10)(121)
+    False
+    >>> div_by_primes_under_no_lambda(10)(12)
+    True
+    >>> div_by_primes_under_no_lambda(5)(1)
+    False
+    """
 
-#     i = ____________________________
-#     while ____________________________:
-#         if not checker(i):
+    def checker(x):
+        return False
 
-#             def outer(____________________________):
+    i = 2
+    while i <= n:
+        if not checker(i):
 
-#                 def inner(____________________________):
-#                     return ____________________________
+            def outer(f, i):
 
-#                 return ____________________________
+                def inner(x):
+                    return x % i == 0 or f(x)
 
-#             checker = ____________________________
-#         i = ____________________________
-#     return ____________________________
+                return inner
+
+            checker = outer(checker, i)
+        i += 1
+    return checker
+
+
+print(div_by_primes_under_no_lambda(10)(12))
