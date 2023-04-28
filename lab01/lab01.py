@@ -96,14 +96,26 @@ def double_eights(n):
     False
     """
     "*** YOUR CODE HERE ***"
-    if n % 100 == 88:
-        return True
-    else:
-        for _ in range(len(str(n)) - 1):
-            n = n // 10
-            #  print(n)
-            if n % 100 == 88:
-                return True
+    # if n % 100 == 88:
+    #     return True
+    # else:
+    #     for _ in range(len(str(n)) - 1):
+    #         n = n // 10
+    #         #  print(n)
+    #         if n % 100 == 88:
+    #             return True
+    # return False
+    " *** answor code "
+    prev_eight = False  # 0 is not a digit.  0 is also the first digit.  So the first digit is not counted.  So the first
+    while n > 0:
+        last_digit = n % 10
+        if last_digit == 8 and prev_eight:
+            return True
+        elif last_digit == 8:
+            prev_eight = True
+        else:
+            prev_eight = False
+        n = n // 10  # checking if the last di
     return False
 
 
