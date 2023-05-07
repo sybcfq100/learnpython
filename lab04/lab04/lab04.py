@@ -1,4 +1,4 @@
-HW_SOURCE_FILE = __file__
+# HW_SOURCE_FILE = __file__
 
 # def summation(n, term):
 #     """Return the sum of numbers 1 through n (including n) wíth term applied to each number.
@@ -44,7 +44,6 @@ HW_SOURCE_FILE = __file__
 #     return paths(m, n - 1) + paths(m - 1, n)
 # print(paths(5, 7))
 
-
 # def pascal(row, column):
 #     """Returns the value of the item in Pascal's Triangle
 #     whose position is specified by row and column.
@@ -64,7 +63,6 @@ HW_SOURCE_FILE = __file__
 #         return 0
 #     else:
 #         return pascal(row - 1, column) + pascal(row - 1, column - 1)  # Recursive call.  This is the same
-
 
 # print(pascal(0, 1))
 
@@ -91,7 +89,24 @@ def double_eights(n):
     True
     """
     "*** YOUR CODE HERE ***"
-    if n < 10:  # The case where n is a single digit number.  This is a quick check.  It will not catch all edge cases.o
+    # prev_eight = False
+    # while n > 0:
+    #     last_digit = n % 10
+    #     if last_digit == 8 and prev_eight:
+    #         return True
+    #     elif last_digit == 8:
+    #         prev_eight = True
+    #     else:
+    #         prev_eight = False
+    #     n = n // 10  # checking if the last di
+    # return False
+    # answer code
+    last, second_last = n % 10, n // 10 % 10  # last and second last digits of the number.  This is the last and second last digits of the number
+    if last == 8 and second_last == 8:  # if the last and second last digits are 8.  This is the condition for the number to
+        return True
+    elif n < 100:
         return False
-    else:
-        k
+    return double_eights(n // 10)
+
+
+print(double_eights(80808))
