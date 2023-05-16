@@ -1,37 +1,38 @@
 #  def flatten(s):
 #      """Returns a flattened version of list s.
-    #
-    #  >>> flatten([1, 2, 3])     # normal list
-    #  [1, 2, 3]
-    #  >>> x = [1, [2, 3], 4]     # deep list
-    #  >>> flatten(x)
-    #  [1, 2, 3, 4]
-    #  >>> x # Ensure x is not mutated
-    #  [1, [2, 3], 4]
-    #  >>> x = [[1, [1, 1]], 1, [1, 1]] # deep list
-    #  >>> flatten(x)
-    #  [1, 1, 1, 1, 1, 1]
-    #  >>> x
-    #  [[1, [1, 1]], 1, [1, 1]]
-    #  >>> x = [[1, [2, 3], [4, [5, 6]]]]
-    #  >>> flatten(x)
-    #  [1, 2, 3, 4, 5, 6]
-    #  >>> x
-    #  [[1, [2, 3], [4, [5, 6]]]]
-    #  >>> x = [[1, [1, [1, [1, 1, [1, 1, [1]]]], 1]]]
-    #  >>> flatten(x)
-    #  [1, 1, 1, 1, 1, 1, 1, 1, 1]
-    #  >>> x
-    #  [[1, [1, [1, [1, 1, [1, 1, [1]]]], 1]]]
-    #  """
+from math import sqrt
+#
+#  >>> flatten([1, 2, 3])     # normal list
+#  [1, 2, 3]
+#  >>> x = [1, [2, 3], 4]     # deep list
+#  >>> flatten(x)
+#  [1, 2, 3, 4]
+#  >>> x # Ensure x is not mutated
+#  [1, [2, 3], 4]
+#  >>> x = [[1, [1, 1]], 1, [1, 1]] # deep list
+#  >>> flatten(x)
+#  [1, 1, 1, 1, 1, 1]
+#  >>> x
+#  [[1, [1, 1]], 1, [1, 1]]
+#  >>> x = [[1, [2, 3], [4, [5, 6]]]]
+#  >>> flatten(x)
+#  [1, 2, 3, 4, 5, 6]
+#  >>> x
+#  [[1, [2, 3], [4, [5, 6]]]]
+#  >>> x = [[1, [1, [1, [1, 1, [1, 1, [1]]]], 1]]]
+#  >>> flatten(x)
+#  [1, 1, 1, 1, 1, 1, 1, 1, 1]
+#  >>> x
+#  [[1, [1, [1, [1, 1, [1, 1, [1]]]], 1]]]
+#  """
 #      "*** YOUR CODE HERE ***"
-    #     lst = []
-    #  for elem in s:
-        #      if type(elem) == list:
-            #          lst += flatten(elem)
-    #      else:
-        #          lst += [elem]
-        #     return lst
+#     lst = []
+#  for elem in s:
+#      if type(elem) == list:
+#          lst += flatten(elem)
+#      else:
+#          lst += [elem]
+#     return lst
 #      if not s:
 #          return []
 #      elif type(s[0]) == list:
@@ -44,41 +45,41 @@
 
 
 #  def my_map(fn, seq):
-    #  """Applies fn onto each element in seq and returns a list.
-    #  >>> my_map(lambda x: x*x, [1, 2, 3])
-    #  [1, 4, 9]
-    #  >>> my_map(lambda x: abs(x), [1, -1, 5, 3, 0])
-    #  [1, 1, 5, 3, 0]
-    #  >>> my_map(lambda x: print(x), ['cs61a', 'spring', '2023'])
-    #  cs61a
-    #  spring
-    #  2023
-    #  [None, None, None]
-    #  """
-    #  return [fn(elem) for elem in seq]
-    #
+#  """Applies fn onto each element in seq and returns a list.
+#  >>> my_map(lambda x: x*x, [1, 2, 3])
+#  [1, 4, 9]
+#  >>> my_map(lambda x: abs(x), [1, -1, 5, 3, 0])
+#  [1, 1, 5, 3, 0]
+#  >>> my_map(lambda x: print(x), ['cs61a', 'spring', '2023'])
+#  cs61a
+#  spring
+#  2023
+#  [None, None, None]
+#  """
+#  return [fn(elem) for elem in seq]
+#
 #  print(my_map(lambda x: x*x, [1, 2, 3]))
 
 #  def my_filter(pred, seq):
-    #  """Keeps elements in seq only if they satisfy pred.
-    #  >>> my_filter(lambda x: x % 2 == 0, [1, 2, 3, 4])  new list has only even-valued elements
-    #  [2, 4]
-    #  >>> my_filter(lambda x: (x + 5) % 3 == 0, [1, 2, 3, 4, 5])
-    #  [1, 4]
-    #  >>> my_filter(lambda x: print(x), [1, 2, 3, 4, 5])
-    #  1
-    #  2
-    #  3
-    #  4
-    #  5
-    #  []
-    #  >>> my_filter(lambda x: max(5, x) == 5, [1, 2, 3, 4, 5, 6, 7])
-    #  [1, 2, 3, 4, 5]
-    #  """
-    #  return list(filter(pred, seq))
-    #  correct answer
-    #  return [elem for elem in seq if pred(elem)]
-    #
+#  """Keeps elements in seq only if they satisfy pred.
+#  >>> my_filter(lambda x: x % 2 == 0, [1, 2, 3, 4])  new list has only even-valued elements
+#  [2, 4]
+#  >>> my_filter(lambda x: (x + 5) % 3 == 0, [1, 2, 3, 4, 5])
+#  [1, 4]
+#  >>> my_filter(lambda x: print(x), [1, 2, 3, 4, 5])
+#  1
+#  2
+#  3
+#  4
+#  5
+#  []
+#  >>> my_filter(lambda x: max(5, x) == 5, [1, 2, 3, 4, 5, 6, 7])
+#  [1, 2, 3, 4, 5]
+#  """
+#  return list(filter(pred, seq))
+#  correct answer
+#  return [elem for elem in seq if pred(elem)]
+#
 #  print(my_filter(lambda x: print(x), [1, 2, 3, 4, 5]))
 
 
@@ -117,9 +118,6 @@ def my_filter_syntax_check():
     ['Expr', 'Return']
     """
     # You don't need to edit this function. It's just here to check your work.
-
-
-from math import sqrt
 
 
 def distance(city_a, city_b):
