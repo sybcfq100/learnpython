@@ -1,6 +1,6 @@
 #  def flatten(s):
 #      """Returns a flattened version of list s.
-from math import sqrt
+#  from math import sqrt
 #
 #  >>> flatten([1, 2, 3])     # normal list
 #  [1, 2, 3]
@@ -77,7 +77,7 @@ from math import sqrt
 #  [1, 2, 3, 4, 5]
 #  """
 #  return list(filter(pred, seq))
-#  correct answer
+##  correct answer
 #  return [elem for elem in seq if pred(elem)]
 #
 #  print(my_filter(lambda x: print(x), [1, 2, 3, 4, 5]))
@@ -96,6 +96,12 @@ def my_reduce(combiner, seq):
     11
     """
     "*** YOUR CODE HERE ***"
+    total = seq[0]
+    for elem in seq[1:]:
+        total = combiner(total, elem)
+    return total
+
+print(my_reduce(lambda x, y: x + 2 * y, [1,2,3]))
 
 
 def my_map_syntax_check():
