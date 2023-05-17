@@ -81,62 +81,71 @@
 #
 #  print(my_filter(lambda x: print(x), [1, 2, 3, 4, 5]))
 
-
-def my_reduce(combiner, seq):
-    """Combines elements in seq using combiner.
-    seq will have at least one element.
-    >>> my_reduce(lambda x, y: x + y, [1, 2, 3, 4])  # 1 + 2 + 3 + 4
-    10
-    >>> my_reduce(lambda x, y: x * y, [1, 2, 3, 4])  # 1 * 2 * 3 * 4
-    24
-    >>> my_reduce(lambda x, y: x * y, [4])
-    4
-    >>> my_reduce(lambda x, y: x + 2 * y, [1, 2, 3]) # (1 + 2 * 2) + 2 * 3
-    11
-    """
-    "*** YOUR CODE HERE ***"
-    total = seq[0]
-    for elem in seq[1:]:
-        total = combiner(total, elem)
-    return total
-
-
-print(my_reduce(lambda x, y: x * y, [4]))
-
-# def my_map_syntax_check():
-#     """Check that your two_of_three code consists of nothing but a return statement.
-
-#     >>> # You aren't expected to understand the code of this test.
-#     >>> import inspect, ast
-#     >>> [type(x).__name__ for x in ast.parse(inspect.getsource(my_map)).body[0].body]
-#     ['Expr', 'Return']
-#     """
-#     # You don't need to edit this function. It's just here to check your work.
-
-# def my_filter_syntax_check():
-#     """Check that your two_of_three code consists of nothing but a return statement.
-
-#     >>> # You aren't expected to understand the code of this test.
-#     >>> import inspect, ast
-#     >>> [type(x).__name__ for x in ast.parse(inspect.getsource(my_filter)).body[0].body]
-#     ['Expr', 'Return']
-#     """
-#     # You don't need to edit this function. It's just here to check your work.
-
-# def distance(city_a, city_b):
-#     """
-#     >>> city_a = make_city('city_a', 0, 1)
-#     >>> city_b = make_city('city_b', 0, 2)
-#     >>> distance(city_a, city_b)
-#     1.0
-#     >>> city_c = make_city('city_c', 6.5, 12)
-#     >>> city_d = make_city('city_d', 2.5, 15)
-#     >>> distance(city_c, city_d)
-#     5.0
+# def my_reduce(combiner, seq):
+#     """Combines elements in seq using combiner.
+#     seq will have at least one element.
+#     >>> my_reduce(lambda x, y: x + y, [1, 2, 3, 4])  # 1 + 2 + 3 + 4
+#     10
+#     >>> my_reduce(lambda x, y: x * y, [1, 2, 3, 4])  # 1 * 2 * 3 * 4
+#     24
+#     >>> my_reduce(lambda x, y: x * y, [4])
+#     4
+#     >>> my_reduce(lambda x, y: x + 2 * y, [1, 2, 3]) # (1 + 2 * 2) + 2 * 3
+#     11
 #     """
 #     "*** YOUR CODE HERE ***"
+#     total = seq[0]
+#     for elem in seq[1:]:
+#         total = combiner(total, elem)
+#     return total
 
-# def closer_city(lat, lon, city_a, city_b):
+# print(my_reduce(lambda x, y: x + 2 * y, [1, 2, 3]))
+
+
+def my_map_syntax_check():
+    """Check that your two_of_three code consists of nothing but a return statement.
+
+    >>> # You aren't expected to understand the code of this test.
+    >>> import inspect, ast
+    >>> [type(x).__name__ for x in ast.parse(inspect.getsource(my_map)).body[0].body]
+    ['Expr', 'Return']
+    """
+    # You don't need to edit this function. It's just here to check your work.
+
+
+def my_filter_syntax_check():
+    """Check that your two_of_three code consists of nothing but a return statement.
+
+    >>> # You aren't expected to understand the code of this test.
+    >>> import inspect, ast
+    >>> [type(x).__name__ for x in ast.parse(inspect.getsource(my_filter)).body[0].body]
+    ['Expr', 'Return']
+    """
+    # You don't need to edit this function. It's just here to check your work.
+
+def make_city(name, lat, lon):
+   # todo 
+    
+def distance(city_a, city_b):
+    """
+    >>> city_a = make_city('city_a', 0, 1)
+    >>> city_b = make_city('city_b', 0, 2)
+    >>> distance(city_a, city_b)
+    1.0
+    >>> city_c = make_city('city_c', 6.5, 12)
+    >>> city_d = make_city('city_d', 2.5, 15)
+    >>> distance(city_c, city_d)
+    5.0
+    """
+    "*** YOUR CODE HERE ***"
+    lat_1, lon_1 = get_lat(city_a), get_lon(city_a)
+    lat_2, lon_2 = get_lat(city_b), get_lon(city_b)
+    return sqrt((lat_1 - lat_2)**2 + (lon_1 - lon_2)**2)
+
+city_a = make_city('city_a', 0, 1)
+city_b = make_city('city_b', 0, 2)# def closer_city(lat, lon, city_a, city_b):
+print(distance(city_a, city_b))
+
 #     """
 #     Returns the name of either city_a or city_b, whichever is closest to
 #     coordinate (lat, lon). If the two cities are the same distance away
