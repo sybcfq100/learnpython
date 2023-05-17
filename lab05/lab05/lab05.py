@@ -101,7 +101,7 @@ def my_reduce(combiner, seq):
     return total
 
 
-print(my_reduce(lambda x, y: x + 2 * y, [1, 2, 3]))
+print(my_reduce(lambda x, y: x * y, [4]))
 
 # def my_map_syntax_check():
 #     """Check that your two_of_three code consists of nothing but a return statement.
