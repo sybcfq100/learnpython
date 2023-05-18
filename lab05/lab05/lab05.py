@@ -169,14 +169,15 @@ def distance(city_a, city_b):
     lat_1, lon_1 = get_lat(city_a), get_lon(city_a)
     lat_2, lon_2 = get_lat(city_b), get_lon(city_b)
     return sqrt((lat_1 - lat_2)**2 + (lon_1 - lon_2)**2)
+#
+#
+#  city_a = make_city('city_a', 0, 1)
+#  city_b = make_city('city_b', 0, 2)  # def closer_city(lat, lon, city_a, city_b):
+#  city_c = make_city('city_c', 6.5, 12)
+#  city_d = make_city('city_d', 2.5, 15)
+#  print(distance(city_c, city_d))
 
-
-city_a = make_city('city_a', 0, 1)
-city_b = make_city('city_b', 0, 2)  # def closer_city(lat, lon, city_a, city_b):
-city_c = make_city('city_c', 6.5, 12)
-city_d = make_city('city_d', 2.5, 15)
-print(distance(city_c, city_d))
-
+def closer_city(lat, lon, city_a, city_b):
 #     """
 #     Returns the name of either city_a or city_b, whichever is closest to
 #     coordinate (lat, lon). If the two cities are the same distance away
@@ -192,8 +193,18 @@ print(distance(city_c, city_d))
 #     'Bucharest'
 #     """
 #     "*** YOUR CODE HERE ***"
+    new_city = make_city('new', lat, lon)
+    dist1 = distance(new_city, city_a)
+    dist2 = distance(new_city, city_b)
+    if dist1 < dist2:
+        return city_a
+    return city_b
 
-# def check_city_abstraction():
+berkeley = make_city('Berkeley', 37.87, 112.26)
+stanford = make_city('Stanford', 34.05, 118.25)
+print(closer_city(38.33, 121.44, berkeley, stanford)[0])
+
+
 #     """
 #     There's nothing for you to do for this function, it's just here for the extra doctest
 #     >>> change_abstraction(True)
