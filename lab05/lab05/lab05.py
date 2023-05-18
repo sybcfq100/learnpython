@@ -100,110 +100,104 @@ from math import sqrt
 #         total = combiner(total, elem)
 #     return total
 
-
 # print(my_reduce(lambda x, y: x + 2 * y, [1, 2, 3]))
-def make_city(name, lat, lon):
-    if change_abstraction.changed:
-        return {"name": name, "lat": lat, "lon": lon}
-    else:
-        return [name, lat, lon]
+# def make_city(name, lat, lon):
+#     if change_abstraction.changed:
+#         return {"name": name, "lat": lat, "lon": lon}
+#     else:
+#         return [name, lat, lon]
 
+# def get_name(city):
+#     if change_abstraction.changed:
+#         return city["name"]
+#     else:
+#         return city[0]
 
-def get_name(city):
-    if change_abstraction.changed:
-        return city["name"]
-    else:
-        return city[0]
+# def get_lat(city):
+#     if change_abstraction.changed:
+#         return city["lat"]
+#     else:
+#         return city[1]
 
-def get_lat(city):
-    if change_abstraction.changed:
-        return city["lat"]
-    else:
-        return city[1]
+# def get_lon(city):
+#     if change_abstraction.changed:
+#         return city["lon"]
+#     else:
+#         return city[2]
+# def change_abstraction(change):
+#     change_abstraction.changed = change
 
+# change_abstraction.changed = False
 
-def get_lon(city):
-    if change_abstraction.changed:
-        return city["lon"]
-    else:
-        return city[2]
-def change_abstraction(change):
-    change_abstraction.changed = change
+# def my_map_syntax_check():
+#     """Check that your two_of_three code consists of nothing but a return statement.
 
-change_abstraction.changed = False
-
-def my_map_syntax_check():
-    """Check that your two_of_three code consists of nothing but a return statement.
-
-    >>> # You aren't expected to understand the code of this test.
-    >>> import inspect, ast
-    >>> [type(x).__name__ for x in ast.parse(inspect.getsource(my_map)).body[0].body]
-    ['Expr', 'Return']
-    """
-    # You don't need to edit this function. It's just here to check your work.
-
-
-def my_filter_syntax_check():
-    """Check that your two_of_three code consists of nothing but a return statement.
-
-    >>> # You aren't expected to understand the code of this test.
-    >>> import inspect, ast
-    >>> [type(x).__name__ for x in ast.parse(inspect.getsource(my_filter)).body[0].body]
-    ['Expr', 'Return']
-    """
-    # You don't need to edit this function. It's just here to check your work.
-
-
-def distance(city_a, city_b):
-    """
-    >>> city_a = make_city('city_a', 0, 1)
-    >>> city_b = make_city('city_b', 0, 2)
-    >>> distance(city_a, city_b)
-    1.0
-    >>> city_c = make_city('city_c', 6.5, 12)
-    >>> city_d = make_city('city_d', 2.5, 15)
-    >>> distance(city_c, city_d)
-    5.0
-    """
-    "*** YOUR CODE HERE ***"
-    lat_1, lon_1 = get_lat(city_a), get_lon(city_a)
-    lat_2, lon_2 = get_lat(city_b), get_lon(city_b)
-    return sqrt((lat_1 - lat_2)**2 + (lon_1 - lon_2)**2)
-#
-#
-#  city_a = make_city('city_a', 0, 1)
-#  city_b = make_city('city_b', 0, 2)  # def closer_city(lat, lon, city_a, city_b):
-#  city_c = make_city('city_c', 6.5, 12)
-#  city_d = make_city('city_d', 2.5, 15)
-#  print(distance(city_c, city_d))
-
-def closer_city(lat, lon, city_a, city_b):
+#     >>> # You aren't expected to understand the code of this test.
+#     >>> import inspect, ast
+#     >>> [type(x).__name__ for x in ast.parse(inspect.getsource(my_map)).body[0].body]
+#     ['Expr', 'Return']
 #     """
-#     Returns the name of either city_a or city_b, whichever is closest to
-#     coordinate (lat, lon). If the two cities are the same distance away
-#     from the coordinate, consider city_b to be the closer city.
+#     # You don't need to edit this function. It's just here to check your work.
 
-#     >>> berkeley = make_city('Berkeley', 37.87, 112.26)
-#     >>> stanford = make_city('Stanford', 34.05, 118.25)
-#     >>> closer_city(38.33, 121.44, berkeley, stanford)
-#     'Stanford'
-#     >>> bucharest = make_city('Bucharest', 44.43, 26.10)
-#     >>> vienna = make_city('Vienna', 48.20, 16.37)
-#     >>> closer_city(41.29, 174.78, bucharest, vienna)
-#     'Bucharest'
+# def my_filter_syntax_check():
+#     """Check that your two_of_three code consists of nothing but a return statement.
+
+#     >>> # You aren't expected to understand the code of this test.
+#     >>> import inspect, ast
+#     >>> [type(x).__name__ for x in ast.parse(inspect.getsource(my_filter)).body[0].body]
+#     ['Expr', 'Return']
+#     """
+#     # You don't need to edit this function. It's just here to check your work.
+
+# def distance(city_a, city_b):
+#     """
+#     >>> city_a = make_city('city_a', 0, 1)
+#     >>> city_b = make_city('city_b', 0, 2)
+#     >>> distance(city_a, city_b)
+#     1.0
+#     >>> city_c = make_city('city_c', 6.5, 12)
+#     >>> city_d = make_city('city_d', 2.5, 15)
+#     >>> distance(city_c, city_d)
+#     5.0
 #     """
 #     "*** YOUR CODE HERE ***"
-    new_city = make_city('new', lat, lon)
-    dist1 = distance(new_city, city_a)
-    dist2 = distance(new_city, city_b)
-    if dist1 < dist2:
-        return city_a
-    return city_b
+#     lat_1, lon_1 = get_lat(city_a), get_lon(city_a)
+#     lat_2, lon_2 = get_lat(city_b), get_lon(city_b)
+#     return sqrt((lat_1 - lat_2)**2 + (lon_1 - lon_2)**2)
+# #
+# #
+# #  city_a = make_city('city_a', 0, 1)
+# #  city_b = make_city('city_b', 0, 2)  # def closer_city(lat, lon, city_a, city_b):
+# #  city_c = make_city('city_c', 6.5, 12)
+# #  city_d = make_city('city_d', 2.5, 15)
+# #  print(distance(city_c, city_d))
 
-berkeley = make_city('Berkeley', 37.87, 112.26)
-stanford = make_city('Stanford', 34.05, 118.25)
-print(closer_city(38.33, 121.44, berkeley, stanford)[0])
+# def closer_city(lat, lon, city_a, city_b):
+# #     """
+# #     Returns the name of either city_a or city_b, whichever is closest to
+# #     coordinate (lat, lon). If the two cities are the same distance away
+# #     from the coordinate, consider city_b to be the closer city.
 
+# #     >>> berkeley = make_city('Berkeley', 37.87, 112.26)
+# #     >>> stanford = make_city('Stanford', 34.05, 118.25)
+# #     >>> closer_city(38.33, 121.44, berkeley, stanford)
+# #     'Stanford'
+# #     >>> bucharest = make_city('Bucharest', 44.43, 26.10)
+# #     >>> vienna = make_city('Vienna', 48.20, 16.37)
+# #     >>> closer_city(41.29, 174.78, bucharest, vienna)
+# #     'Bucharest'
+# #     """
+# #     "*** YOUR CODE HERE ***"
+#     new_city = make_city('new', lat, lon)
+#     dist1 = distance(new_city, city_a)
+#     dist2 = distance(new_city, city_b)
+#     if dist1 < dist2:
+#         return city_a
+#     return city_b
+
+# berkeley = make_city('Berkeley', 37.87, 112.26)
+# stanford = make_city('Stanford', 34.05, 118.25)
+# print(closer_city(38.33, 121.44, berkeley, stanford)[0])
 
 #     """
 #     There's nothing for you to do for this function, it's just here for the extra doctest
@@ -280,6 +274,7 @@ print(closer_city(38.33, 121.44, berkeley, stanford)[0])
 
 # ###############
 
+
 # def count_palindromes(L):
 #     """The number of palindromic words in the sequence of strings
 #     L (ignoring case).
@@ -287,19 +282,24 @@ print(closer_city(38.33, 121.44, berkeley, stanford)[0])
 #     >>> count_palindromes(("Acme", "Madam", "Pivot", "Pip"))
 #     2
 #     """
-#     return ______
+#     return len(list(filter(lambda x: x[0].lower() == x[-1].lower(), L)))
 
-# def coords(fn, seq, lower, upper):
-#     """
-#     >>> seq = [-4, -2, 0, 1, 3]
-#     >>> fn = lambda x: x**2
-#     >>> coords(fn, seq, 1, 9)
-#     [[-2, 4], [1, 1], [3, 9]]
-#     """
-#     "*** YOUR CODE HERE ***"
-#     return ______
 
-# def change_abstraction(change):
+# print(count_palindromes(("Acme", "Madam", "Pivot", "Pip")))
+def coords(fn, seq, lower, upper):
+    """
+    >>> seq = [-4, -2, 0, 1, 3]
+    >>> fn = lambda x: x**2
+    >>> coords(fn, seq, 1, 9)
+    [[-2, 4], [1, 1], [3, 9]]
+    """
+    "*** YOUR CODE HERE ***"
+    return [[x, fn(x)] for x in seq if lower <= fn(x) <= upper]  
+
+seq = [-4, -2, 0, 1, 3]
+fn = lambda x: x**2    # def change_abstraction(change):
+print(coords(fn, seq, 1, 9))
+
 #     """
 #     For testing purposes.
 #     >>> change_abstraction(True)
