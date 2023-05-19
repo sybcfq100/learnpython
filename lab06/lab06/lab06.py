@@ -39,7 +39,6 @@ HW_SOURCE_FILE = __file__
 # new_lst = insert_items(test_lst, 5, 7)
 # print(new_lst)
 
-
 # def count_occurrences(t, n, x):
 #     """Return the number of times that x appears in the first n elements of iterator t.
 
@@ -68,7 +67,6 @@ HW_SOURCE_FILE = __file__
 #             counter += 1
 #     return counter
 
-
 # s = iter([3, 2, 2, 2, 1, 2, 1, 3, 4, 5, 5, 5])
 
 #     count = 0
@@ -79,8 +77,6 @@ HW_SOURCE_FILE = __file__
 #             i += 1
 #     return count
 # s = [3, 2, 2, 2, 1, 2, 1, 3, 4, 5, 5, 5]
-
-
 
 # print(count_occurrences(s, 1, 3))
 
@@ -110,31 +106,45 @@ def repeated(t, k):
     "*** YOUR CODE HERE ***"
 
 
-def partial_reverse(lst, start):
-    """Reverse part of a list in-place, starting with start up to the end of
-    the list.
+# def partial_reverse(lst, start):
+#     """Reverse part of a list in-place, starting with start up to the end of
+#     the list.
 
-    >>> a = [1, 2, 3, 4, 5, 6, 7]
-    >>> partial_reverse(a, 2)
-    >>> a
-    [1, 2, 7, 6, 5, 4, 3]
-    >>> partial_reverse(a, 5)
-    >>> a
-    [1, 2, 7, 6, 5, 3, 4]
-    """
-    "*** YOUR CODE HERE ***"
+#     >>> a = [1, 2, 3, 4, 5, 6, 7]
+#     >>> partial_reverse(a, 2)
+#     >>> a
+#     [1, 2, 7, 6, 5, 4, 3]
+#     >>> partial_reverse(a, 5)
+#     >>> a
+#     [1, 2, 7, 6, 5, 3, 4]
+#     """
+#     "*** YOUR CODE HERE ***"
+#     stop = len(lst)
+#     while start < stop - 1:
+#         lst[start], lst[stop - 1] = lst[stop - 1], lst[start]
+#         start, stop = start + 1, stop - 1
+#     return lst
 
+# a = [1, 2, 3, 4, 5, 6, 7]
+# print(partial_reverse(a, 2))
 
-def index_largest(seq):
-    """Return the index of the largest element in the sequence.
+# def index_largest(seq):
+#     """Return the index of the largest element in the sequence.
 
-    >>> index_largest([8, 5, 7, 3 ,1])
-    0
-    >>> index_largest((4, 3, 7, 2, 1))
-    2
-    """
-    assert len(seq) > 0
-    "*** YOUR CODE HERE ***"
+#     >>> index_largest([8, 5, 7, 3 ,1])
+#     0
+#     >>> index_largest((4, 3, 7, 2, 1))
+#     2
+#     """
+#     assert len(seq) > 0
+#     "*** YOUR CODE HERE ***"
+#     index_largest = 0
+#     for j in range(len(seq)):
+#         if seq[j] > seq[index_largest]:
+#             index_largest = j
+#     return index_largest
+
+# print(index_largest([4, 3, 7, 2, 1]))
 
 
 def pizza_sort(lst):
