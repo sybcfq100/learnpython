@@ -50,7 +50,7 @@ HW_SOURCE_FILE = __file__
 #     2
 #     >>> s = iter([3, 2, 2, 2, 1, 2, 1, 4, 4, 5, 5, 5])
 #     >>> count_occurrences(s, 1, 3)
-#     1
+#
 #     >>> count_occurrences(s, 3, 2)
 #     3
 #     >>> next(s)
@@ -103,46 +103,63 @@ def repeated(t, k):
     2
     """
     assert k > 1
+    count = 1
+    last_item = None
+    while True:
+        item = next(t)
+        if item == last_item:
+            count += 1
+        else:
+            last_item = item
+            count = 1
+        if count == k:
+            return item
+
+
+s2 = iter([4, 1, 6, 6, 7, 7, 8, 8, 2, 2, 2, 5])
+print(repeated(s2, 3))
+
+
+def partial_reverse(lst, start):
+    """Reverse part of a list in-place, starting with start up to the end of
+    the list.
+
+    >>> a = [1, 2, 3, 4, 5, 6, 7]
+    >>> partial_reverse(a, 2)
+    >>> a
+    [1, 2, 7, 6, 5, 4, 3]
+    >>> partial_reverse(a, 5)
+    >>> a
+    [1, 2, 7, 6, 5, 3, 4]
+    """
     "*** YOUR CODE HERE ***"
+    stop = len(lst)
+    while start < stop - 1:
+        lst[start], lst[stop - 1] = lst[stop - 1], lst[start]
+        start, stop = start + 1, stop - 1
+    return lst
 
-
-# def partial_reverse(lst, start):
-#     """Reverse part of a list in-place, starting with start up to the end of
-#     the list.
-
-#     >>> a = [1, 2, 3, 4, 5, 6, 7]
-#     >>> partial_reverse(a, 2)
-#     >>> a
-#     [1, 2, 7, 6, 5, 4, 3]
-#     >>> partial_reverse(a, 5)
-#     >>> a
-#     [1, 2, 7, 6, 5, 3, 4]
-#     """
-#     "*** YOUR CODE HERE ***"
-#     stop = len(lst)
-#     while start < stop - 1:
-#         lst[start], lst[stop - 1] = lst[stop - 1], lst[start]
-#         start, stop = start + 1, stop - 1
-#     return lst
 
 # a = [1, 2, 3, 4, 5, 6, 7]
 # print(partial_reverse(a, 2))
 
-# def index_largest(seq):
-#     """Return the index of the largest element in the sequence.
 
-#     >>> index_largest([8, 5, 7, 3 ,1])
-#     0
-#     >>> index_largest((4, 3, 7, 2, 1))
-#     2
-#     """
-#     assert len(seq) > 0
-#     "*** YOUR CODE HERE ***"
-#     index_largest = 0
-#     for j in range(len(seq)):
-#         if seq[j] > seq[index_largest]:
-#             index_largest = j
-#     return index_largest
+def index_largest(seq):
+    """Return the index of the largest element in the sequence.
+
+    >>> index_largest([8, 5, 7, 3 ,1])
+    0
+    >>> index_largest((4, 3, 7, 2, 1))
+    2
+    """
+    # assert len(seq) > 0
+    "*** YOUR CODE HERE ***"
+    index_largest = 0
+    for j in range(len(seq)):
+        if seq[j] > seq[index_largest]:
+            index_largest = j
+    return index_largest
+
 
 # print(index_largest([4, 3, 7, 2, 1]))
 
@@ -156,11 +173,18 @@ def pizza_sort(lst):
     >>> a
     [9, 8, 7, 5, 3, 2, 1]
     """
-    pizza_sort_helper(________, ________)
+    pizza_sort_helper(lst, 0)
 
 
 def pizza_sort_helper(lst, start):
-    if _______________:
-        partial_reverse(________, ________)
-        partial_reverse(________, ________)
-        _______________(________, ________)
+    if start < len(lst) - 1:
+        partial_reverse(lst, start + index_largest(lst[start:]))
+        partial_reverse(lst, start)
+        pizza_sort_helper(lst, start + 1)
+
+
+a = [8, 5, 7, 3, 1, 9, 2]
+# b = sorted(a, reverse=True)
+# print(b)
+pizza_sort(a)
+print(a)
