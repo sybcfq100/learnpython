@@ -1,16 +1,16 @@
-#  from operator import add, mul
-#
-#  square = lambda x: x * x
-#
-#  identity = lambda x: x
-#
-#  triple = lambda x: 3 * x
-#
-#  increment = lambda x: x + 1
-#
-#  HW_SOURCE_FILE = __file__
-#
-#
+from operator import add, mul
+
+square = lambda x: x * x
+
+identity = lambda x: x
+
+triple = lambda x: 3 * x
+
+increment = lambda x: x + 1
+
+HW_SOURCE_FILE = __file__
+
+
 #  def product(n, term):
 #      """Return the product of the first n terms in a sequence.
 #
@@ -36,8 +36,8 @@
 #      return result
 #
 #
-#  #  print(product(3, increment))
-#
+#  print(product(3, increment))
+
 #
 #  def accumulate(merger, start, n, term):
 #      """Return the result of merging the first n terms in a sequence and start.

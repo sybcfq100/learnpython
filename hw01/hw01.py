@@ -1,25 +1,31 @@
-from operator import add, sub
+# from operator import add, sub
 
-#  def a_plus_abs_b(a, b):
-#  """Return a+abs(b), but without calling abs.
-#
-#  >>> a_plus_abs_b(2, 3)
-#  5
-#  >>> a_plus_abs_b(2, -3)
-#  5
-#  >>> a_plus_abs_b(-1, 4)
-#  3
-#  >>> a_plus_abs_b(-1, -4)
-#  3
-#  """
-#  if b < 0:
-#      f = sub
-#  else:
-#      f = add
-#  return f(a, b)   # 根据return返回的是一个函数，所以，f对应的也是函数才能相等
-#
-#
-#  print(a_plus_abs_b(-1, -4))
+
+# def a_plus_abs_b(a, b):
+#     """Return a+abs(b), but without calling abs.
+    
+#     >>> a_plus_abs_b(2, 3)
+#     5
+#     >>> a_plus_abs_b(2, -3)
+#     5
+#     >>> a_plus_abs_b(-1, 4)
+#     3
+#     >>> a_plus_abs_b(-1, -4)
+#     3
+#     """
+#     if b < 0:
+#         f = sub
+#     else:
+#         f = add
+#     return f(a, b)  # 根据return返回的是一个函数，所以，f对应的也是函数才能相等
+    # if b < 0:
+    #     b = -b
+    # else:
+    #     b = b
+    # return add(a, b)
+
+
+# print(a_plus_abs_b(-1, -4))
 
 #  def a_plus_abs_b_syntax_check():
 #  """Check that you didn't change the return statement of a_plus_abs_b.
@@ -79,39 +85,38 @@ from operator import add, sub
 #  print(largest_factor(13))
 #
 
-#  def hailstone(n):
-#  """Print the hailstone sequence starting at n and return its
-#  length.
-#
-#  >>> a = hailstone(10)
-#  10
-#  5
-#  16
-#  8
-#  4
-#  2
-#  1
-#  >>> a
-#  7
-#  >>> b = hailstone(1)
-#  1
-#  >>> b
-#  1
-#  """
-#  "*** YOUR CODE HERE ***"
-#  count = 0
-#  flag = True
-#  while flag:
-#      print(int(n))
-#      count += 1
-#      if n == 1:
-#          flag = False
-#          break
-#      elif n % 2 == 0:
-#          n = n / 2
-#      else:
-#          n = n * 3 + 1
-#  return count
-#
-#
-#  print(hailstone(5))
+def hailstone(n):
+    """Print the hailstone sequence starting at n and return its length.
+
+    >>> a = hailstone(10)
+    10
+    5
+    16
+    8
+    4
+    2
+    1
+    >>> a
+    7
+    >>> b = hailstone(1)
+    1
+    >>> b
+    1
+    """
+    "*** YOUR CODE HERE ***"
+    count = 0
+    flag = True
+    while flag:
+        print(int(n))
+        count += 1
+        if n == 1:
+            flag = False
+            break
+        elif n % 2 == 0:
+            n = n / 2
+        else:
+            n = n * 3 + 1
+    return '>>>' + '\n' + str(count)
+
+
+print(hailstone(10))
