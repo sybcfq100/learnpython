@@ -23,16 +23,17 @@ def search(f):
         x += 1
 
 
+
+def is_three(x):
+    return x == 3
+
+
+print(search(is_three))
+# print(is_three(2))
 #
-#  def is_three(x):
-#      return x == 3
 #
-#
-#  #  print(search(is_three))
-#
-#
-def square(x):
-    return x * x
+# def square(x):
+#     return x * x
 
 
 #
@@ -58,14 +59,14 @@ def square(x):
 #
 # sqrt = inverse(square)
 # sqrt(256)
-def end(n, d):
-    while n > 0:
-        last, n = n % 10, n // 10
-        print(last)
-        if d == last:
-            # break
-            return None
+# def end(n, d):
+#     while n > 0:
+#         last, n = n % 10, n // 10
+#         print(last)
+#         if d == last:
+#             # break
+#             return None
 
 
-print(end(324567, 5))
+# print(end(324567, 5))
 
