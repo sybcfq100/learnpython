@@ -47,24 +47,25 @@ def square(x):
 #      '''Return g(y) such that g(f(x)) --> x.'''
 #      return lambda y: search(lambda x: f(x) == y)
 #
-def sqrt(y):
-    def is_sqrt_of_y(x):
-        return square(x) == y
+# def sqrt(y):
+#     def is_sqrt_of_y(x):
+#         return square(x) == y
 
-    return search(is_sqrt_of_y)
+#     return search(is_sqrt_of_y)
 
 
-print(sqrt(36))
+# print(sqrt(36))
 #
-#  sqrt = inverse(square)
-#  sqrt(256)
-#  def end(n, d):
-#      while n > 0:
-#          last, n = n % 10, n // 10
-#          print(last)
-#          if d == last:
-#              return None
-#
-#
-#  print(end(324567, 5))
-#
+# sqrt = inverse(square)
+# sqrt(256)
+def end(n, d):
+    while n > 0:
+        last, n = n % 10, n // 10
+        print(last)
+        if d == last:
+            # break
+            return None
+
+
+print(end(324567, 5))
+
