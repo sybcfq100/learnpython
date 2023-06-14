@@ -25,7 +25,7 @@ print(list(everything(98357)))
 #     no = close(n//10, smallest, d)
 #     if smallest > n % 10:
 #         yes = close(n//10, min(smallest, d), n %10 )*10 + n%10
-#         return max(yes, no)
+#         return max(yes, no)space
 #     return no
 
 # print(close(45671))
