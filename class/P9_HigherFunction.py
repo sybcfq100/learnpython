@@ -29,7 +29,7 @@ def is_three(x):
 
 
 print(search(is_three))
-# print(is_three(2))
+print(is_three(2))
 #
 #
 # def square(x):

@@ -31,3 +31,29 @@ else:
 #         print(k)
 
 # prime_factors(78)
+
+
+# def is_prime(n):
+#     """判断素数的函数"""
+#     assert n > 0
+#     return next(
+#         (False for factor in range(2, int(sqrt(n)) + 1) if n % factor == 0),
+#         n != 1,
+#     )
+
+
+# '''
+# 输入一个数，判断是不是素数
+# '''
+
+# num = int(input('inter a number: '))
+# end = int(num**0.5)
+# isPrime = True
+# for x in range(2, end):
+#     if num%x == 0:
+#         isPrime = False
+#         break
+# if isPrime and num != 1:
+#     print(f'{num} is prime!')
+# else:
+#     print(f'{num} is not prime!')

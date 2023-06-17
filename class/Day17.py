@@ -139,18 +139,18 @@
 #  if __name__ == '__main__':
 #      main()
 #
-#  def main():
-#      items = list(map(int, input().split()))
-#      overall = partial = items[0]
-#      for i in range(1, len(items)):
-#          partial = max(items[i], partial + items[i])
-#          overall = max(partial, overall)
-#      print(overall)
-#
-#
-#  if __name__ == '__main()__':
-#      main()
-#  item1 = list(map(lambda x: x ** 2, filter(lambda x: x % 2, range(1, 10))))
-#  print(item1)
-#  item2 = [x ** 2 for x in range(1, 10) if x % 2#  ]
+def main():
+    items = list(map(int, input().split()))
+    overall = partial = items[0]
+    for i in range(1, len(items)):
+        partial = max(items[i], partial + items[i])
+        overall = max(partial, overall)
+    print(overall)
+
+
+if __name__ == '__main()__':
+    main()
+item1 = list(map(lambda x: x ** 2, filter(lambda x: x % 2, range(1, 10))))
+print(item1)
+#  item2 = [x ** 2 for x in range(1, 10) if x % 2]
 #  print(item2)

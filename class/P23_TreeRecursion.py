@@ -24,29 +24,26 @@
 #  print(same_count)
 #
 #  def sum_iter(n):
-    #  sum = 0
-    #  for i in range(n+1):
-    #      sum += i
-    #
-    #  return sum
-    #
+#  sum = 0
+#  for i in range(n+1):
+#      sum += i
+#
+#  return sum
+#
 #  print(sum_iter(5))
 
-
 #  def sum_rec(n):
-    #  if n == 0:
-    #      return 0
-    #  else:
-    #      return n + sum_rec(n-1)
-    #
+#  if n == 0:
+#      return 0
+#  else:
+#      return n + sum_rec(n-1)
+#
 #  print(sum_rec(5))
 
-
 #  def divsions(n):
-    #  return [x for x in range(1, n) if n%x==0]
-    #
+#  return [x for x in range(1, n) if n%x==0]
+#
 #  print(divsions(12))
-
 
 #  def reverse(s):
 #      if s == '':
@@ -56,4 +53,3 @@
 #      return reverse(s[1:]) + s[0]
 #
 #  print(reverse('hello'))
-

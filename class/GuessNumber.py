@@ -2,6 +2,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import random
+
 uplimt = 4
 secretNumber = random.randint(1, uplimt)
 print(secretNumber)
@@ -21,9 +22,6 @@ for guessTaken in range(1, uplimt):
     else:
         break
 if guess == secretNumber:
-    print(
-        'Good Job! You guessed my number in ' +
-        str(guessTaken) +
-        ' guesses! ')
+    print('Good Job! You guessed my number in ' + str(guessTaken) + ' guesses! ')
 else:
     print('No! The number I was thinking was ' + str(secretNumber) + '!')

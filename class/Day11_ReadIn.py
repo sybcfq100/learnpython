@@ -17,7 +17,7 @@
 # import time
 
 # def main():
-    # 一次性读取整个文件内容
+# 一次性读取整个文件内容
 #     with open('0.05rpc.txt', 'r', encoding='utf-8') as f:
 #         print(f.read())
 # # 通过for-in循环逐行读取
@@ -25,45 +25,16 @@
 #         for line in f:
 #             print(line, end='')
 #             time.sleep(0.5)
-#     print() 
-   # 读取文件按行读取到列表中
+#     print()
+# 读取文件按行读取到列表中
 #     with open('0.05rpc.txt') as f:
 #         lines = f.readlines()
 #     print(lines)
-       
-        
-    
+
 # if __name__ == '__main__':
 #     main()
 
-
 # from math import sqrt
-# '''
-# 输入一个数，判断是不是素数
-# '''
-
-
-# num = int(input('inter a number: '))
-# end = int(num**0.5)
-# isPrime = True
-# for x in range(2, end):
-#     if num%x == 0:
-#         isPrime = False
-#         break
-# if isPrime and num != 1:
-#     print(f'{num} is prime!')
-# else:   
-#     print(f'{num} is not prime!')
-
-
-# def is_prime(n):
-#     """判断素数的函数"""
-#     assert n > 0
-#     return next(
-#         (False for factor in range(2, int(sqrt(n)) + 1) if n % factor == 0),
-#         n != 1,
-#     )
-
 
 # def main():
 #     filenames = ('a.txt', 'b.txt', 'c.txt')
@@ -86,10 +57,8 @@
 #             fs.close()
 #     print('操作完成!')
 
-
 # if __name__ == '__main__':
 #     main()
-
 
 # shakes = open('shakespeare.txt')
 # text = shakes.read().split()

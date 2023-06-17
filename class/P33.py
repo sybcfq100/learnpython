@@ -22,4 +22,3 @@ print(t)
 # t = [[1, 2], [3, 4]]
 # t[0].append(t[1:2])
 # print(t)
-

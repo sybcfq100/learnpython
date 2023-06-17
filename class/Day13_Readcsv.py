@@ -18,7 +18,3 @@
 #         for elem in data_list:
 #             print(elem, end='\t')
 #         print()
-
-import xlrd
-
-
