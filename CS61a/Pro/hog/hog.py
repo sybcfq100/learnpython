@@ -24,6 +24,17 @@ def roll_dice(num_rolls, dice=six_sided):
     # BEGIN PROBLEM 1
     "*** YOUR CODE HERE ***"
     # END PROBLEM 1
+    total = 0
+    while num_rolls > 0:
+        total += dice()
+        if dice == 1:
+            return 1
+        total += dice()
+        num_rolls -= 1
+    return total
+
+
+print(roll_dice(9))
 
 
 def free_bacon(score):
@@ -62,8 +73,7 @@ def take_turn(num_rolls, opponent_score, dice=six_sided):
 
 def extra_turn(player_score, opponent_score):
     """Return whether the player gets an extra turn."""
-    return (pig_pass(player_score, opponent_score) or
-            swine_align(player_score, opponent_score))
+    return (pig_pass(player_score, opponent_score) or swine_align(player_score, opponent_score))
 
 
 def swine_align(player_score, opponent_score):
@@ -120,8 +130,7 @@ def silence(score0, score1):
     return silence
 
 
-def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
-         goal=GOAL_SCORE, say=silence):
+def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided, goal=GOAL_SCORE, say=silence):
     """Simulate a game and return the final scores of both players, with Player
     0's score first, and Player 1's score second.
 
@@ -182,6 +191,7 @@ def announce_lead_changes(last_leader=None):
         if leader != None and leader != last_leader:
             print('Player', leader, 'takes the lead by', abs(score0 - score1))
         return announce_lead_changes(leader)
+
     return say
 
 
@@ -203,6 +213,7 @@ def both(f, g):
     """
     def say(score0, score1):
         return both(f(score0, score1), g(score0, score1))
+
     return say
 
 
@@ -251,6 +262,7 @@ def always_roll(n):
     """
     def strategy(score, opponent_score):
         return n
+
     return strategy
 
 
@@ -325,7 +337,6 @@ def run_experiments():
     "*** You may add additional experiments as you wish ***"
 
 
-
 def bacon_strategy(score, opponent_score, cutoff=8, num_rolls=6):
     """This strategy rolls 0 dice if that gives at least CUTOFF points, and
     rolls NUM_ROLLS otherwise.
@@ -354,6 +365,7 @@ def final_strategy(score, opponent_score):
     return 6  # Replace this statement
     # END PROBLEM 12
 
+
 ##########################
 # Command Line Interface #
 ##########################
@@ -367,8 +379,7 @@ def run(*args):
     """Read in the command-line argument and calls corresponding functions."""
     import argparse
     parser = argparse.ArgumentParser(description="Play Hog")
-    parser.add_argument('--run_experiments', '-r', action='store_true',
-                        help='Runs strategy experiments')
+    parser.add_argument('--run_experiments', '-r', action='store_true', help='Runs strategy experiments')
 
     args = parser.parse_args()
 
