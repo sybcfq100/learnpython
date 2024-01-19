@@ -18,6 +18,7 @@
 # print(numbers2)    # [144, 64, 3600, 2704]
 
 import matplotlib.pyplot as plt
+
 f = []
 
 
@@ -34,7 +35,7 @@ for i in range(1, 30):
     y = fib(i)
     f.append(y)
 fig, ax = plt.subplots()
-plt.plot(f, 'bo-')
+plt.plot(f, "bo-")
 plt.show()
 
 # list1 = [1,3,5,7,100]
