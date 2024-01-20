@@ -34,14 +34,15 @@ def main():
     else:
         raise Exception(body["message"])
 
+
 ##################
 # AUTHENTICATION #
 ################ #
 
-"""
-Bacon OK integration: mostly ported from OK Client
-https://github.com/okpy/ok-client/blob/master/client/utils/auth.py
-"""
+#"""
+#Bacon OK integration: mostly ported from OK Client
+#https://github.com/okpy/ok-client/blob/master/client/utils/auth.py
+#"""
 import http.server
 import json
 import logging
@@ -83,7 +84,7 @@ class BaconOkException(Exception):
 
 
 class OAuthException(BaconOkException):
-    """ OAuth related exception """
+    """OAuth related exception"""
 
     def __init__(self, error="", error_description=""):
         super().__init__()
@@ -92,7 +93,7 @@ class OAuthException(BaconOkException):
 
 
 def _pick_free_port(hostname=REDIRECT_HOST, port=0):
-    """ Try to bind a port. Default=0 selects a free port. """
+    """Try to bind a port. Default=0 selects a free port."""
     import socket
 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -141,7 +142,7 @@ def _make_code_post(server, code, redirect_uri):
 
 
 def _get_code():
-    """ Make the requests to get OK access code """
+    """Make the requests to get OK access code"""
     # email = input("Please enter your bCourses email: ")
 
     host_name = REDIRECT_HOST
@@ -166,7 +167,7 @@ def _get_code():
 
 
 def _get_code_via_browser(redirect_uri, host_name, port_number):
-    """ Get OK access code by opening User's browser """
+    """Get OK access code by opening User's browser"""
     server = OK_SERVER_URL
     code_response = None
     oauth_exception = None
@@ -227,10 +228,10 @@ def _get_code_via_browser(redirect_uri, host_name, port_number):
 
 
 class OAuthSession:
-    """ Represents OK OAuth state """
+    """Represents OK OAuth state"""
 
     def __init__(self, access_token="", refresh_token="", expires_at=-1, session=None):
-        """ Create OK OAuth state with given tokens, and expiration """
+        """Create OK OAuth state with given tokens, and expiration"""
         self.session = self.refresh_token = self.access_token = None
         self.expires_at = -1
         self.assignment = None
@@ -274,5 +275,6 @@ class OAuthSession:
             self.expires_at = cur_time + expires_in
         return self.access_token
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

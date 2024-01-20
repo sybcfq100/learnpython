@@ -6,7 +6,8 @@ def binary_sum(s, start, stop):
     else:
         mid = (start + stop) // 2
         return binary_sum(s, start, mid) + binary_sum(s, mid, stop)
-    
+
+
 s1 = list(range(10))
 s2 = list(range(5))
 s = s1 + s2
