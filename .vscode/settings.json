@@ -3,5 +3,6 @@
         "editor.defaultFormatter": "ms-python.python"
     },
     "python.formatting.provider": "yapf",
-    "task.slowProviderWarning": true
+    "task.slowProviderWarning": true,
+    "docwriter.style": "Auto-detect"
 }
