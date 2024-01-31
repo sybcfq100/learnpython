@@ -5,14 +5,14 @@
 # Author: 骆昊
 # """
 
-x = float(input('x = '))
+x = float(input("x = "))
 if x > 1:
     y = 3 * x - 5
 elif x >= -1:
     y = x + 2
 else:
     y = 5 * x + 3
-print(f'f({x}) = {y}')
+print(f"f({x}) = {y}")
 # print('f(%s) = %s' % (x, y))
 # '''
 # 说明：水仙花数也被称为超完全数字不变数、自恋数、自幂数、阿姆斯特朗数，
@@ -65,4 +65,3 @@ print(f'f({x}) = {y}')
 #         else:
 #             needs_go_on = True
 # print('You are poor!')
-
