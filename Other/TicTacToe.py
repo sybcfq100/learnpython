@@ -1,6 +1,6 @@
 class TicTacToe:
     def __init__(self):
-        self._board = [[" "] * 3 for j in range(3)]
+        self._board = [[" "] * 3 for _ in range(3)]
         self._player = "X"
 
     def mark(self, i, j):
@@ -12,10 +12,7 @@ class TicTacToe:
         if self.winner() is not None:
             raise ValueError("Game is already finished")
         self._board[i][j] = self._player
-        if self._player == "X":
-            self._player = "O"
-        else:
-            self._player = "X"
+        self._player = "O" if self._player == "X" else "X"
 
     def _is_win(self, mark):
         """check whether the board configuration for the given player has a winner or not"""
