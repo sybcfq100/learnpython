@@ -51,8 +51,8 @@ class Clock(object):
     # def show(self):
     #     return '%02d:%02d:%02d' % (self._hour, self._minute, self._second)
     def show(self):
-      """显示时间"""
-      return f'{self._hour:0>2d}:{self._minute:0>2d}:{self._second:0>2d}'
+        """显示时间"""
+        return f"{self._hour:0>2d}:{self._minute:0>2d}:{self._second:0>2d}"
 
 
 def main():
@@ -63,7 +63,7 @@ def main():
         clock.run()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
 
     # from math import sqrt

@@ -6,11 +6,11 @@ class CreditCard:
     def __init__(self, custom, bank, account, limit):
         """create a new credit card instance
         The initial balance is zero
-        customer the name of the customer 
+        customer the name of the customer
         bank
         account
         limit
-    """
+        """
         self._customer = custom
         self._bank = bank
         self._account = account
@@ -26,7 +26,7 @@ class CreditCard:
         return self._bank
 
     def get_account(self):
-        """return the card identifying number """
+        """return the card identifying number"""
         return self._account
 
     def get_limit(self):
@@ -38,7 +38,7 @@ class CreditCard:
         return self._balance
 
     def charge(self, price):
-        """ Charge given price to the card, assuming sufficient credit limit.
+        """Charge given price to the card, assuming sufficient credit limit.
         Return True if charge was processed; False if charge was denied"""
         if price + self._balance > self._limit:
             return False
@@ -47,7 +47,7 @@ class CreditCard:
             return True
 
     def make_payment(self, amount):
-        """ process customer payment that reduces balance."""
+        """process customer payment that reduces balance."""
         self._balance -= amount
 
 
@@ -81,19 +81,26 @@ class PredatoryCreditCard(CreditCard):
 
     def __init__(self, customer, bank, account, limit, apr):  # 成员函数
         """create a new predatory credit card instance
-        customer the name of the customer 
+        customer the name of the customer
         bank
         account
         limit
         apr
         """
-        super().__init__(customer, bank, account, limit)  # 调用继承构造函数执行大部分初始化处理，这样就不用重复写customer等4个参数
+        super().__init__(
+            customer, bank, account, limit
+        )  # 调用继承构造函数执行大部分初始化处理，这样就不用重复写customer等4个参数
         self._apr = apr  # 扩展---构造参数年利率
 
-    def charge(self, price):  # 定义的新方法，成员函数--取决于对继承方法的调用，调用函数返回值表明是否收费成功,我们检查返回值，决定是否评估费用
+    def charge(
+        self, price
+    ):  # 定义的新方法，成员函数--取决于对继承方法的调用，调用函数返回值表明是否收费成功,我们检查返回值，决定是否评估费用
         """Charge given price to the card, assuming sufficient credit limit.
-        Return True if charge was processed; False and assess $5 fee if charge was denied"""
-        success = super().charge(price)  # 调用继承方法，如果超出限额，返回False，否则返回True
+        Return True if charge was processed; False and assess $5 fee if charge was denied
+        """
+        success = super().charge(
+            price
+        )  # 调用继承方法，如果超出限额，返回False，否则返回True
         if not success:
             self._balance += 5  # 收取5元手续费
         return success  # 调用者期望返回值
@@ -102,10 +109,11 @@ class PredatoryCreditCard(CreditCard):
         """Assess monthly interest and compute payment
         Return True if payment is due; False if payment is not due"""
         if self._balance > 0:  # balance 表示有欠款，需要收利息
-            monthly_factor = pow(1+self._apr, 1/12)  # 月收取利息因子
+            monthly_factor = pow(1 + self._apr, 1 / 12)  # 月收取利息因子
             self._balance *= monthly_factor  # 收取金额
 
-acc = PredatoryCreditCard('Uday', 'SBI', '123456789', 1000, 15)
+
+acc = PredatoryCreditCard("Uday", "SBI", "123456789", 1000, 15)
 print(acc.charge(500))
 print(acc.get_balance())
 print(acc.process_month(15))
