@@ -23,7 +23,6 @@ def search(f):
         x += 1
 
 
-
 def is_three(x):
     return x == 3
 
