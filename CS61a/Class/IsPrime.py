@@ -3,7 +3,6 @@
 """
 
 from math import sqrt
-
 num = int(input('please input a number:'))
 end = int(sqrt(num))
 is_prime = all(num % x != 0 for x in range(2, end + 1))
