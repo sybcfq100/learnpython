@@ -25,8 +25,7 @@
 #
 #  result = sqrt(250)
 #  print(result)
-
-g = lambda x: lambda y: y + 1
-
+#  tag : how to use lambda
+g = lambda x: lambda y: y + 1  # noqa: E731
 eight = g(1)(7)
 print(eight)
